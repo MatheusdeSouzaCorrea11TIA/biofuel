@@ -1,0 +1,59 @@
+@import url(./base.css);
+
+:root {
+    font-size: 62.5%;
+    --white: #FFFFFF;
+    --black: #000000;
+    --purple: #804BCF;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+}
+
+.paragraph-title {
+    color: var(--purple);
+}
+
+main {
+
+}
+
+main .title {
+    padding: 3rem;
+    text-align: right;
+
+    h1 {
+    font-size: 7.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #acacac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+        span { 
+            color: var(--purple); 
+        }
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+    }
+}
+
+main .title p {
+    font-size: 1.6rem;
+}
+
+main .introduction {
+    height: 40rem;
+
+    div {
+        width: 20rem;
+    }
+}
