@@ -69,10 +69,15 @@
         
         // Mouse interaction
         document.addEventListener('mousemove', (e) => {
+            //Div container
+            const div = document.querySelector(".gradient-background")
+            const divRect = div.getBoundingClientRect()
+
             // Create particles at mouse position
-            const mouseX = (e.clientX / window.innerWidth) * 100;
-            const mouseY = (e.clientY / window.innerHeight) * 100;
+            const mouseX = (e.clientX / divRect.width) * 100;
+            const mouseY = (e.clientY / divRect.height) * 100;
             
+
             // Create temporary particle
             const particle = document.createElement('div');
             particle.className = 'particle';

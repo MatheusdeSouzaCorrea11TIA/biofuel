@@ -5,6 +5,7 @@
     --white: #FFFFFF;
     --black: #000000;
     --purple: #804BCF;
+    
 }
 
 body {
@@ -16,13 +17,33 @@ body {
     color: var(--purple);
 }
 
+/* Global Section Style */
 main {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+main .introduction, main .game {
+    max-width: 192rem;
+    background: var(--black);
+}
+
+/* Title Section */
 main .title {
     padding: 3rem;
     text-align: right;
+    height: var(--title-section-height);
+    width: 100%;
+
+    .text-box {
+        height: 100%;
+        width: fit-content;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
     h1 {
     font-size: 7.2rem;
@@ -50,10 +71,69 @@ main .title p {
     font-size: 1.6rem;
 }
 
+/* Introduction Section */
 main .introduction {
-    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 7rem;
+    text-align: center;
 
-    div {
-        width: 20rem;
+    .text-box h2 {
+        font-size: 5.6rem;
+        max-width: 70rem;
+    }
+
+    .text-box p {
+        font-size: 1.6rem;
+    }
+
+    .container {
+        display: flex;
+        text-align: left;
+        gap: 10rem;
+
+        div {
+            width: 22rem;
+        }
+
+        h3 {
+            font-size: 2.4rem;
+
+            span {
+                font-size: 3.2rem;
+            }
+        }
+
+        p {
+            font-size: 1.6rem;
+            opacity: 0.5;
+            max-width: 30rem;
+        }    
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: var(--purple);
+        padding: 1rem 2rem;
+        border-radius: 1rem;
     }
 }
+
+/* Image Section */
+main .img-div {
+    background: url(../assets/images/home-img1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    h2 {
+        margin: auto;
+    }
+}
+
+/* Game Section */
