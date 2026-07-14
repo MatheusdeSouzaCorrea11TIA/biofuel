@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/animated.css">
     <script src="./js/animated.js" defer></script>
+    <script src="./js/header.js" defer></script>
+    <script src="./js/changeMode.js"></script>
     <title>BioFuel - Home</title>
 </head>
-<body>
-    <header>
 
-    </header>
+<body class="darkmode">
+    <main-header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Instruções</a>
+                </li>
+
+                <li>
+                    <a href="">Referências</a>
+                </li>
+
+                <li>
+                    <a href="./html/projeto.html">Projeto</a>
+                </li>
+            </ul>
+
+            <a href="index.html" class="home-anchor">Bio<span class="purple">Fuel</span></a>
+
+            <ul>
+                <li>
+                    <a href="">Produto</a>
+                </li>
+
+                <li>
+                    <a href="">Sobre nós</a>
+                </li>
+
+                <li>
+                    <a href="">Jogo</a>
+                </li>
+            </ul>
+
+            <button onclick="toggleModes()">
+                <i class="bi bi-moon"></i>
+            </button>
+        </nav>
+    </main-header>
 
     <main>
         <section class="title">
@@ -40,7 +78,8 @@
             <div class="container">
                 <div class="info1">
                     <h3><span>24M+</span><br> Litros de Vinhaça</h3>
-                    <p>Transformação de resíduos industriais em fonte de energia sustentável e reutilização inteligente de recursos.</p>
+                    <p>Transformação de resíduos industriais em fonte de energia sustentável e reutilização inteligente
+                        de recursos.</p>
                 </div>
                 <div class="info2">
                     <h3><span>40%</span><br> Custo Reduzido</h3>
@@ -62,16 +101,31 @@
         </section>
 
         <section class="game">
-            <p class="paragraph-title">Conheça nosso jogo</p>
-            <h2>Solaris Conquest</h2>
+            <div class="text-box">
+                <p class="paragraph-title">Conheça nosso jogo</p>
+                <h2>Solaris Conquest</h2>
+            </div>
 
             <div class="container">
                 <img src="" alt="Imagem do jogo Solaris Conquest">
-                <p>No mundo da Fazenda do Seu Zé o Sol está perdendo sua força devido à ação de seres conhecidos como Agentes Astrais, entidades que desejam dominar sua energia e mergulhar os planetas na destruição.
-                <br><br>
-                Em Solaris Conquest, o jogador embarca em uma missão para recuperar fragmentos de energia solar espalhados pelo universo, enfrentando desafios, inimigos e ambientes hostis para restaurar o equilíbrio e impedir o colapso da vida.</p>
+                <p>No mundo da Fazenda do Seu Zé o Sol está perdendo sua força devido à ação de seres conhecidos como
+                    Agentes Astrais, entidades que desejam dominar sua energia e mergulhar os planetas na destruição.
+                    <br><br>
+                    Em <span class="orange">Solaris Conquest</span>, o jogador embarca em uma missão para recuperar
+                    fragmentos de energia solar espalhados pelo universo, enfrentando desafios, inimigos e ambientes
+                    hostis para restaurar o equilíbrio e impedir o colapso da vida.
+            </div>
+
+            <div class="buttons">
+                <a href="" class="download-button">Fazer Download</a>
+                <a href="" class="game-page">Acessar Página</a>
             </div>
         </section>
     </main>
+
+    <main-footer>
+        
+    </main-footer>
 </body>
+
 </html>
