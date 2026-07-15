@@ -1,14 +1,14 @@
 class Header extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+    connectedCallback() { //Tirar o + dps
+        this.innerHTML += ` 
 
         `
     }
 }
 
 class Footer extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+    connectedCallback() { //Tirar o + dps
+        this.innerHTML += ` 
 
         `
     }
@@ -16,9 +16,6 @@ class Footer extends HTMLElement {
 
 customElements.define('main-header', Header)
 customElements.define('main-footer', Footer)
-
-const head = document.head
-head.innerHTML += `<link rel="stylesheet" href="./css/header.css">`
 
 //Coloca cor roxa na ancora da pagina atual
 document.addEventListener("DOMContentLoaded", () => {

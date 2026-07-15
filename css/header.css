@@ -62,3 +62,47 @@ main-header {
         font-size: 2.4rem;
     }
 }
+
+main-footer {
+    margin-block: auto 1.5rem;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    gap: 1rem;
+    max-width: 100rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    .info-container {
+        border-right: 0.3rem solid var(--white);
+        padding-right: 1rem;
+        text-align: right;
+        
+        div {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            img {
+                width: 8rem;
+            }
+        }
+    }
+
+    .tecnologies-container {
+        text-align: left;
+        padding-left: 1rem;
+        
+        .img-container  {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 1.5rem;
+            img {
+                width: 6rem;
+                border-radius: 1rem;
+            }
+        }
+    }
+}
