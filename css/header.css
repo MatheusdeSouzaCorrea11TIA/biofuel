@@ -6,6 +6,7 @@ main-header {
     display: flex;
     justify-content: center;
     text-align: center;
+    z-index: 100;
 
     nav {
         display: flex;
@@ -36,12 +37,12 @@ main-header {
     }
 
     .home-anchor {
-        font-family: 'Bebas Neue';
+        font-family: var(--title-font-family);
         font-size: 4.8rem;
         font-weight: 500;
 
         span {
-            font-family: 'Bebas Neue';
+            font-family: var(--title-font-family);
         }
     }
 

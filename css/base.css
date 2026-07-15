@@ -11,8 +11,19 @@
 
 :root {
     font-size: 62.5%;
+    --title-font-family: 'Bebas Neue';
     --title-section-height: 40rem;
 
+    --text-font-family: 'Roboto';
+
+    --img-section-height: 50rem;
+
+    --white: #FFFFFF;
+    --gray: #A8A8A8;
+    --black: #000000;
+    --purple: #804BCF;
+    --orange: #FF9500;
+    --text-color-gradient: linear-gradient(to right, #B795EA,#48F2C2);
 }
 
 .purple { color: var(--purple); }
@@ -21,9 +32,46 @@
 
 /* Não pergunte o pq do grid apenas aceite */
 body {
+    background: var(--black);
+    color: var(--white);
     min-height: 100dvh;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: minmax(0, 1fr);
 }
 
+/* Sections */
+section.title {
+    border-radius: 0 0 2rem 2rem;
+}
+
+main .img-div {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: var(--img-section-height);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-family: var(--title-font-family);
+        font-size: 4.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}
+
+.gradient-text {
+    font-family: var(--title-font-family);
+    background-image: var(--text-color-gradient);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    
+    display: inline-block;
+}

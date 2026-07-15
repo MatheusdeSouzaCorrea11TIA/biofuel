@@ -1,7 +1,41 @@
 class Header extends HTMLElement {
     connectedCallback() { //Tirar o + dps
-        this.innerHTML += ` 
+        this.innerHTML = ` 
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">Instruções</a>
+                    </li>
 
+                    <li>
+                        <a href="">Referências</a>
+                    </li>
+
+                    <li>
+                        <a href="./projeto.html">Projeto</a>
+                    </li>
+                </ul>
+
+                <a href="./index.html" class="home-anchor">Bio<span class="purple">Fuel</span></a>
+
+                <ul>
+                    <li>
+                        <a href="">Produto</a>
+                    </li>
+
+                    <li>
+                        <a href="">Sobre nós</a>
+                    </li>
+
+                    <li>
+                        <a href="">Jogo</a>
+                    </li>
+                </ul>
+
+                <button onclick="toggleModes()">
+                    <i class="bi bi-moon"></i>
+                </button>
+            </nav>
         `
     }
 }
