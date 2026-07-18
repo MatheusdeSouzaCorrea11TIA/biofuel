@@ -12,11 +12,11 @@ class Header extends HTMLElement {
                     </li>
 
                     <li>
-                        <a href="./projeto.html">Projeto</a>
+                        <a href="projeto.html">Projeto</a>
                     </li>
                 </ul>
 
-                <a href="./index.html" class="home-anchor">Bio<span class="purple">Fuel</span></a>
+                <a href="index.html" class="home-anchor">Bio<span class="purple">Fuel</span></a>
 
                 <ul>
                     <li>
@@ -43,7 +43,24 @@ class Header extends HTMLElement {
 class Footer extends HTMLElement {
     connectedCallback() { //Tirar o + dps
         this.innerHTML += ` 
+            <div class="info-container">
+                <p>2026 — Projeto de TCC: Sistema Inteligente de Reaproveitamento Energético da Vinhaça</p>
+                <div>
+                    <p>Desenvolvido pela equipe Vortex ©</p>
+                    <img src="./assets/icons/vortex-logo.png" alt="Logo do Vortex Horizon">
+                </div>
+            </div>
 
+            <div class="tecnologies-container">
+                <p>Tecnologias utilizadas: Unity, VS Code, Blender, Clip Studio, Photoshop</p>
+                <div class="img-container">
+                    <img src="./assets/icons/unity-logo.png" alt="Logo da Unity">
+                    <img src="./assets/icons/vscode-logo.png" alt="Logo do VS Code">
+                    <img src="./assets/icons/blender-logo.png" alt="Logo do Blender">
+                    <img src="./assets/icons/clipstudio-logo.png" alt="Logo do Clip Studio">
+                    <img src="./assets/icons/photoshop-logo.png" alt="Logo do Photoshop">
+                </div>
+            </div>
         `
     }
 }
@@ -59,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.forEach((link) => {
         const linkPath = link.getAttribute("href")
 
-        if (currentPath === "" && linkPath === "index.html") {
+        if (currentPath === "" && linkPath === "./index.html") {
             link.classList.add("active-page")
         } else if (currentPath === linkPath) {
             link.classList.add("active-page")

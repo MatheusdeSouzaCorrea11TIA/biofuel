@@ -1,5 +1,9 @@
 @import url(../base.css);
 
+body {
+    overflow-x: hidden;
+}
+
 main .title {
     background: url(../../assets/images/projeto-img1.jpg);
     background-size: cover;
@@ -8,22 +12,22 @@ main .title {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: var(--title-section-height);
     
     h1 {
+        position: absolute;
         color: #EBDDFF;
         opacity: 0.67;
-        left: 0;
-        right: 0;
         text-align: center;
         font-family: var(--title-font-family);
         font-size: 32rem;
         letter-spacing: 10rem;
-        position: absolute;
+        text-indent: 10rem;
         z-index: 0;
     }
 
     img {
-        width: 100rem;
+        height: 100%;
         z-index: 1;
     }
 }
@@ -158,6 +162,73 @@ main .sensors {
                 color: var(--gray);
                 font-size: 2.4rem;
                 margin-left: 2rem;
+            }
+        }
+
+    }
+
+    .project-sensors {
+        padding-top: 10rem;
+
+        h2 {
+            font-size: 5.6rem;
+            font-family: var(--title-font-family);
+            font-weight: 500;
+        }
+
+        .infinite-3dslider {
+            position: relative;
+            margin: 10rem auto 0 0;
+            width: 20rem;
+            height: 20rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .logo-container {
+                background: var(--black);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                outline: var(--white) solid 0.2rem;
+                border: solid var(--purple) 3rem;
+                border-radius: 50%;
+                padding: 5rem;
+            }
+
+            .logo-container::after {
+                content: '';
+                position: absolute;
+                width: 50rem;
+                height: 20rem;
+                outline: var(--white) solid 0.2rem;
+                background: radial-gradient(circle at center, transparent 50%,var(--purple) 50%);
+                border-radius: 50%;
+                transform: rotateX(45deg);
+                z-index: -1;
+            }
+
+            .logo {
+                height: 10rem;
+                width: 10rem;
+                z-index: 1;
+            }
+
+            .slider-item {
+                position: absolute;
+                margin-block: auto;
+                text-align: center;
+                height: 20rem;
+                width: 20rem;
+
+                p {
+                    font-family: var(--title-font-family);
+                    font-size: 2.4rem;
+                }
+
+                img {
+                    width: 60%;
+                }
             }
         }
     }
