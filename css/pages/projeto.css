@@ -6,9 +6,6 @@ body {
 
 main .title {
     background: url(../../assets/images/projeto-img1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;

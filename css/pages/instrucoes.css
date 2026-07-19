@@ -1,0 +1,125 @@
+@import url(../base.css);
+
+main .title {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-image: url(../../assets/images/instrucoes-img1.jpg);
+    text-align: right;
+    height: var(--title-section-height);
+
+    h1 {
+        max-width: 70rem;
+        font-family: var(--title-font-family);
+        font-size: 9.6rem;
+        font-weight: 500;
+    }
+    span {
+        font-family: var(--title-font-family);
+    }
+}
+
+main .process {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    
+    h2 {
+        font-size: 4.8rem;
+        text-align: center;
+    }
+
+    div {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+
+        p {
+            color: var(--gray);
+            max-width: 40rem;
+            font-size: 1.6rem;
+        }
+    }
+
+    table {
+        border: 0.1rem solid var(--white);
+
+        th {
+            font-family: var(--title-font-family);
+            font-weight: 500;
+            font-size: 2.4rem;
+        }
+        td {
+            font-size: 1.6rem;
+        }
+
+        tr > th:nth-of-type(1) {
+            color: var(--purple);
+        }
+        tr > th:nth-of-type(2) {
+            color: var(--green);
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 0.1rem solid var(--white);
+        }
+    }
+}
+
+main .instructions {
+    background-image: url(../../assets/images/instrucoes-img2.jpg);
+}
+
+main .step-guide {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+    align-items: start;
+    padding: 3rem;
+
+    .column1,
+    .column2,
+    .column3 {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        height: 100%;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: var(--dark-gray);
+            border-radius: 1rem;
+            padding: 3rem;
+
+            img {
+                object-fit: cover;
+                margin-top: 3rem;
+                width: 100%;
+            }
+
+            h2 {
+                font-family: var(--title-font-family);
+                font-weight: 500;
+                font-size: 3.2rem;
+                color: var(--purple);
+            }
+
+            p, ol {
+                font-size: 1.6rem;
+            }
+
+            ol {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                margin-block: 2rem;
+                color: var(--gray);
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ class Header extends HTMLElement {
             <nav>
                 <ul>
                     <li>
-                        <a href="">Instruções</a>
+                        <a href="./instrucoes.html">Instruções</a>
                     </li>
 
                     <li>
