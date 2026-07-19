@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/pages/produto.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <script src="./js/header.js"></script>
+    <script src="./js/changeMode.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script type="module">
+        const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true
+        });
+    </script>
+
+    <title>BioFuel - Informações do Produto</title>
+</head>
+
+<body class="darkmode">
+    <main-header>
+
+    </main-header>
+
+    <main>
+        <section class="title">
+            <h1>Informações do <span class="purple">Produto</span></h1>
+        </section>
+
+        <section class="miniature">
+            <p>Processo de produção</p>
+
+            <h2>Maquete do projeto</h2>
+
+            <div class="maquete">
+                <div class="diamond"></div>
+                <img src="./assets/images/produto-maquete.png" alt="Imagem ilustrativa da maquete do projeto">
+            </div>
+            <p class="info">Imagem meramente ilustrativa*</p>
+        </section>
+
+        <section class="itens-usados">
+            <div class="text-box">
+                <p>Tabela de Itens</p>
+                <h2>Itens Usados</h2>
+
+                <p class="description">
+                    Os itens que serão utilizados na confecção do projeto estão listados abaixo, sua média de preço
+                    também está apresentada juntamente de uma ilustração
+                </p>
+            </div>
+
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./assets/images/ESP32.png" alt="Imagem">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Protoboard</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">
+                                        R$
+                                    </span>
+                                    <span class="price-bg">
+                                        99.99
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main-footer>
+
+    </main-footer>
+</body>
+
+</html>

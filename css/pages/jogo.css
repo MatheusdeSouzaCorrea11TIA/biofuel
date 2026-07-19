@@ -1,0 +1,167 @@
+@import url(../base.css);
+
+main .title {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-image: url();
+    text-align: right;
+    height: var(--title-section-height);
+
+    h1 {
+        max-width: 70rem;
+        font-family: var(--title-font-family);
+        font-size: 6.4rem;
+        font-weight: 500;
+        border-bottom: 0.3rem solid var(--purple);
+        margin-bottom: 2rem;
+    }
+
+    .solaris-info {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(0.35rem);
+        padding: 2rem;
+        margin-right: 5rem;
+
+        ul {
+            padding-left: 2rem;
+            color: var(--white);
+            text-align: left;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
+}
+
+main .game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+
+    .text-box {
+        text-align: center;
+        margin-bottom: 4rem;
+
+        p {
+            color: var(--purple);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-family: var(--title-font-family);
+            font-size: 6.4rem;
+            font-weight: 500;
+        }
+    }
+
+    .game-info {
+        display: flex;
+
+        img {
+            width: 50rem;
+        }
+
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+
+            p {
+                max-width: 50rem;
+                color: var(--white);
+                text-transform: none;
+                font-weight: 600;
+                font-size: 1.6rem;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+
+                a {
+                    background: var(--purple);
+                    padding: 1.5rem 4rem;
+                    border-radius: 2rem;
+                    color: var(--white);
+                    text-decoration: none;
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}
+
+main .characters {
+    padding: 3rem;
+
+    .text-box {
+        text-align: center;
+        margin-bottom: 4rem;
+
+        p {
+            color: var(--purple);
+            text-transform: uppercase;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: var(--title-font-family);
+            font-size: 6.4rem;
+            font-weight: 500;
+        }
+
+        span {
+            color: var(--gray);
+            font-size: 1.6rem;
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        justify-content: center;
+
+        .character {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 25rem;
+                border: 0.2rem solid var(--white);
+                border-radius: 2rem;
+            }
+
+            .text-box {
+                text-align: center;
+                border: 0.2rem solid var(--white);
+                padding: 1rem 3rem;
+                border-radius: 0 0 1rem 1rem;
+
+                h3 {
+                    font-size: 3.2rem;
+                    font-family: var(--title-font-family);
+                    font-weight: 500;
+                }
+                p {
+                    color: var(--gray);
+                    text-transform: none;
+                }
+            }
+        }
+    }
+}
+
+main .criacoes {
+    background-image: url(../../assets/images/jogo-img1.jpg);
+    margin-bottom: 7rem;
+}

@@ -8,7 +8,7 @@ class Header extends HTMLElement {
                     </li>
 
                     <li>
-                        <a href="">Referências</a>
+                        <a href="./referencias.html">Referências</a>
                     </li>
 
                     <li>
@@ -20,15 +20,15 @@ class Header extends HTMLElement {
 
                 <ul>
                     <li>
-                        <a href="">Produto</a>
+                        <a href="./produto.html">Produto</a>
                     </li>
 
                     <li>
-                        <a href="">Sobre nós</a>
+                        <a href="./sobrenos.html">Sobre nós</a>
                     </li>
 
                     <li>
-                        <a href="">Jogo</a>
+                        <a href="./jogo.html">Jogo</a>
                     </li>
                 </ul>
 

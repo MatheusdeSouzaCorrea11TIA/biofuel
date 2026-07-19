@@ -44,8 +44,12 @@ body {
 
 /* Sections */
 section.title {
+    backdrop-filter: brightness(20%);
     padding-top: 3rem;
     border-radius: 0 0 1rem 1rem;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-blend-mode: multiply;
+    background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

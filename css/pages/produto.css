@@ -1,0 +1,135 @@
+@import url(../base.css);
+
+main .title {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-image: url(../../assets/images/produto-img.jpg);
+    text-align: right;
+    height: var(--title-section-height);
+
+    h1 {
+        max-width: 70rem;
+        font-family: var(--title-font-family);
+        font-size: 9.6rem;
+        font-weight: 500;
+    }
+    span {
+        font-family: var(--title-font-family);
+    }
+}
+
+main .miniature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem;
+
+    h2 {
+        font-family: var(--title-font-family);
+        font-size: 4.8rem;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 1.6rem;
+        color: var(--purple);
+    }
+
+    .info {
+        color: var(--white);
+        margin-top: 1rem;
+        margin-left: 40rem;
+        opacity: 0.5;
+    }
+
+    .maquete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .diamond {
+            z-index: -1;
+            width: 60rem;
+            height: 60rem;
+            position: absolute;
+            background: rgba(255,255,255,0.5);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        img {
+            margin-block: 5rem 2rem;
+            width: 80rem;
+        }
+
+    }
+}
+
+main .itens-usados {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
+    padding: 4rem;
+
+    .text-box {
+        p {
+            color: var(--purple);
+            font-size: 1.6rem;
+        }
+
+        h2 {
+            font-family: var(--title-font-family);
+            font-size: 4.8rem;
+            font-weight: 500;
+        }
+
+        .description {
+            margin-top: 3rem;
+            color: var(--gray);
+            max-width: 40rem;
+        }
+    }
+
+    .swiper {
+        display: flex;
+        width: 100%;
+        overflow-x: hidden;
+
+        .swiper-slide {
+            display: flex;
+            padding: 5rem;
+
+            .text-box {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            img {
+                border-inline: 0.1rem solid var(--white);
+                padding: 2rem;
+                width: 40rem;
+                width: 40rem;
+                margin-right: 5rem;
+            }
+            p {
+                color: var(--white);
+                font-weight: 700;
+                font-size: 2.4rem;
+            }
+
+            .price-box span {
+                font-size: 2.4rem;
+                font-weight: 600;
+            }
+
+            .price-bg {
+                color: var(--black);
+                background: var(--green);
+                border-radius: 1rem;
+                padding: 0.25rem 1rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@import url(../base.css);
+
+main .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--title-section-height);
+    
+    .text-box {
+        margin-right: 10rem;
+        h1 {
+            font-family: var(--title-font-family);
+            font-size: 5.6rem;
+            font-weight: 500;
+
+            span {
+                font-family: var(--title-font-family);
+            }
+        }
+        
+        p {
+            color: var(--gray);
+            font-size: 1.6rem;
+            max-width: 40rem;
+        }
+    }
+
+    img {
+        width: 25rem;
+    }
+}
+
+main .auras {
+    background-image: url(../../assets/images/aurudos.png);
+    h2 {
+        background: radial-gradient(circle at center, var(--purple), transparent);
+    }
+}
+
+main .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    gap: 3rem;
+
+    .members {
+        display: flex;
+    }
+
+    .message {
+        background: var(--dark-gray);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70rem;
+        padding: 2rem;
+        border-radius: 1rem;
+
+        p {
+            max-width: 30rem;
+            text-align: right;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        img {
+            width: 20rem;
+        }
+    }
+}
