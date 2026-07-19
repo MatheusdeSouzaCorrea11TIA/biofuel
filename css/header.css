@@ -5,8 +5,24 @@ main-header {
     top: 1.5rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
     z-index: 100;
+    gap: 2rem;
+
+    .login-btn {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 1rem;
+        border: 0.1rem solid var(--white);
+        border-radius: 5rem;
+        padding: 0.25rem 0.75rem;
+
+        i {
+            font-size: 1.6rem;
+        }
+    }
 
     nav {
         display: flex;
@@ -104,6 +120,21 @@ main-footer {
                 width: 4rem;
                 border-radius: 1rem;
             }
+        }
+    }
+}
+
+@media (min-width: 375px) {
+    main-header {
+        nav {
+            display: grid;
+        }
+    }
+
+    main-footer {
+        flex-direction: column;
+        p {
+            font-size: 1rem;
         }
     }
 }

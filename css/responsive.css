@@ -1,0 +1,42 @@
+@media (min-width: 375px) {
+    :root {
+        --title-section-height: 60rem;
+    }
+
+    section.title {
+        text-align: center;
+
+        h1 {
+            font-size: 6.4rem;
+        }
+    }
+
+    section:not(.title) {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem;
+
+        .text-box {
+            h2 {
+                font-size: 3.2rem;
+            }
+
+            p {
+                font-size: 1.6rem;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    main .game {
+        .buttons a {
+            margin: 0;
+            margin-top: 1rem;
+        }
+    }
+}

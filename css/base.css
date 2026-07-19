@@ -26,6 +26,7 @@
     --orange: #FF9500;
     --green: #48F2C2;
     --text-color-gradient: linear-gradient(to right, var(--purple),var(--green));
+    --login-bg: linear-gradient(135deg, #804BCF, #351B9A);
 }
 
 .purple { color: var(--purple); }
@@ -50,7 +51,6 @@ section.title {
     background-color: rgba(0, 0, 0, 0.25);
     background-blend-mode: multiply;
     background-size: cover;
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -64,6 +64,7 @@ main .img-div {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     h2 {
         font-family: var(--title-font-family);

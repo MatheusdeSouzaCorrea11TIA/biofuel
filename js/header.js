@@ -16,7 +16,15 @@ class Header extends HTMLElement {
                     </li>
                 </ul>
 
-                <a href="index.html" class="home-anchor">Bio<span class="purple">Fuel</span></a>
+                <div class="main-link">
+                    <a href="index.html" class="home-anchor">
+                        Bio<span class="purple">Fuel</span>
+                    </a>
+                    <a href="./login.html" class="login-btn">
+                        <i class="bi bi-person-circle"></i>
+                        Login
+                    </a>
+                </div>
 
                 <ul>
                     <li>
@@ -32,10 +40,11 @@ class Header extends HTMLElement {
                     </li>
                 </ul>
 
-                <button onclick="toggleModes()">
-                    <i class="bi bi-moon"></i>
-                </button>
             </nav>
+            
+            <button onclick="toggleModes()">
+                <i class="bi bi-moon"></i>
+            </button>
         `
     }
 }
