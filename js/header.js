@@ -22,7 +22,7 @@ class Header extends HTMLElement {
                     </a>
                     <a href="./login.html" class="login-btn">
                         <i class="bi bi-person-circle"></i>
-                        Login
+                        <span class="login-name">Login</span>
                     </a>
                 </div>
 
@@ -77,10 +77,12 @@ class Footer extends HTMLElement {
 customElements.define('main-header', Header)
 customElements.define('main-footer', Footer)
 
+
 //Coloca cor roxa na ancora da pagina atual
 document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname.split("/").pop()
     const navLinks = document.querySelectorAll("main-header a:not(.home-anchor)")
+    const header = document.querySelector("main-header")
 
     navLinks.forEach((link) => {
         const linkPath = link.getAttribute("href")
@@ -91,4 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
             link.classList.add("active-page")
         }
     })
+
+    //Auto Login
+    const user = JSON.parse(sessionStorage.getItem("User"))
+    const loginText = header.querySelector(".login-name")
+    if (user) {
+        loginText.innerHTML = user.name
+    }
 })

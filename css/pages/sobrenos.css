@@ -32,6 +32,7 @@ main .title {
 
 main .auras {
     background-image: url(../../assets/images/aurudos.png);
+    background-size: contain;
     h2 {
         background: radial-gradient(circle at center, var(--purple), transparent);
     }

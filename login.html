@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/responsive.css">
     <script src="./js/header.js"></script>
     <script src="./js/changeMode.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/login.js" defer></script>
     <title>BioFuel - Login</title>
 </head>
 
@@ -21,32 +21,32 @@
     <div class="main-box">
         <div class="divisor right">
             <p>Não possui uma conta?</p>
-            <button onclick="toggleDivisor()">Cadastre-se</button>
+            <button onclick="ToggleDivisor()">Cadastre-se</button>
         </div>
 
         <div class="login-box">
             <h2>Login</h2>
             
             <div class="input-box">
-                <input type="email" id="email" placeholder="Email">
-                <input type="password" id="password" placeholder="Senha">
+                <input type="email" id="email-login" placeholder="Email">
+                <input type="password" id="password-login" placeholder="Senha">
                 <a href="">Esqueceu a senha?</a>
             </div>
 
-            <button>Iniciar sessão</button>
+            <button onclick="Login()">Iniciar sessão</button>
         </div>
 
         <div class="sign-up-box">
             <h2>Cadastro</h2>
 
             <div class="input-box">
-                <input type="text" id="name" placeholder="Nome de usuário">
-                <input type="email" id="email" placeholder="Email">
-                <input type="password" id="password" placeholder="Senha">
+                <input type="text" id="name-signup" placeholder="Nome de usuário">
+                <input type="email" id="email-signup" placeholder="Email">
+                <input type="password" id="password-signup" placeholder="Senha">
                 <a href="">Esqueceu a senha?</a>
             </div>
 
-            <button>Cadastrar</button>
+            <button onclick="SignUp()">Cadastrar</button>
         </div>
     </div>
 </body>
