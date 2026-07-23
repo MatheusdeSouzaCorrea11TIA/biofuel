@@ -24,6 +24,9 @@ class Header extends HTMLElement {
                         <i class="bi bi-person-circle"></i>
                         <span class="login-name">Login</span>
                     </a>
+                    <span class="login-ask">
+                        Faça login para acessar a dashboard
+                    </span>
                 </div>
 
                 <ul>
@@ -83,21 +86,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname.split("/").pop()
     const navLinks = document.querySelectorAll("main-header a:not(.home-anchor)")
     const header = document.querySelector("main-header")
+    const loginText = header.querySelector(".login-name")
+    const loginButton = header.querySelector(".login-btn")
+    const loginAsk = header.querySelector(".login-ask")
 
     navLinks.forEach((link) => {
         const linkPath = link.getAttribute("href")
-
+        
+        
         if (currentPath === "" && linkPath === "./index.html") {
             link.classList.add("active-page")
         } else if (currentPath === linkPath) {
             link.classList.add("active-page")
         }
+        
+        if (currentPath === "login.html") {
+            loginButton.style.display = "none"
+            loginAsk.style.display = "none"
+        }
     })
-
+    
     //Auto Login
     const user = JSON.parse(sessionStorage.getItem("User"))
-    const loginText = header.querySelector(".login-name")
     if (user) {
-        loginText.innerHTML = user.name
+        loginText.innerHTML = "Dashboard"
+        loginAsk.innerHTML = ""
     }
 })

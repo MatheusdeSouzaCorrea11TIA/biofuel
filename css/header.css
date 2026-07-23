@@ -10,19 +10,30 @@ main-header {
     z-index: 100;
     gap: 2rem;
 
-    .login-btn {
+    .main-link {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        border: 0.1rem solid var(--fixed-white);
-        border-radius: 5rem;
-        padding: 0.25rem 0.75rem;
-        color: var(--fixed-white);
-
-        i {
-            font-size: 1.6rem;
+        flex-direction: column;
+        .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            border: 0.1rem solid var(--fixed-white);
+            border-radius: 5rem;
+            padding: 0.25rem 0.75rem;
             color: var(--fixed-white);
+
+            i {
+                font-size: 1.6rem;
+                color: var(--fixed-white);
+            }
+        }
+
+        .login-ask {
+            margin-top: 1rem;
+            color: var(--green);
+            font-weight: 300;
+            font-size: 1.2rem;
         }
     }
 
