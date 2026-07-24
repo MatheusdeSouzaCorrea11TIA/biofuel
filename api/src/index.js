@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import mysql from "mysql2";
 import dotenv from "dotenv"
+import { Server } from "socket.io"
+import { createServer } from "http"
 dotenv.config()
 
 const connection = mysql.createPool({
@@ -11,18 +13,18 @@ const connection = mysql.createPool({
     database: process.env.SERVER_DATABASE
 })
 
-/* == Table users ==
-CREATE TABLE users(
-    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-*/
-
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+const httpServer = createServer(app);
+
+const io = new Server(httpServer, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
 
 app.get("/", async (req, res) => {
     res.json({ message: "This is the main page, nothing important here" })
@@ -100,8 +102,37 @@ app.post("/signup", async (req,res) => {
     })
 })
 
+app.post("/api/sensores", async (req, res) => {
+    const { mac } = req.body;
 
+    console.log(mac)
+    io.emit("sensores", mac)
 
-app.listen(process.env.PORT, () => {
+    // io.to(`user_${usuario_id}`).emit("sensores", dados);
+    // Usar esse quando tiver sistema de autenticação
+
+    res.send("Recebido")
+})
+
+httpServer.listen(process.env.PORT, () => {
     console.log(`Servidor rodando em http://localhost:${process.env.PORT}`)
 })
+
+/* == Table users ==
+CREATE TABLE users(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+   == Table ESP32 ==
+CREATE TABLE ESP32(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
+    mac VARCHAR(17) UNIQUE NOT NULL,
+    nome VARCHAR(100),
+
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+*/

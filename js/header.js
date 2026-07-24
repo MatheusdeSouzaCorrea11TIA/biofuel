@@ -20,10 +20,15 @@ class Header extends HTMLElement {
                     <a href="index.html" class="home-anchor">
                         Bio<span class="purple">Fuel</span>
                     </a>
-                    <a href="./login.html" class="login-btn">
-                        <i class="bi bi-person-circle"></i>
-                        <span class="login-name">Login</span>
-                    </a>
+                    <div class="login-btn-container">
+                        <a href="./login.html" class="login-btn">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="login-name">Login</span>
+                        </a>
+                        <a href="./dashboard.html">
+                            Dashboard
+                        </a>
+                    </div>
                     <span class="login-ask">
                         Faça login para acessar a dashboard
                     </span>
@@ -109,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Auto Login
     const user = JSON.parse(sessionStorage.getItem("User"))
     if (user) {
-        loginText.innerHTML = "Dashboard"
-        loginAsk.innerHTML = ""
+        loginText.innerHTML = user.name
+        loginAsk.style.display = "none"
     }
 })

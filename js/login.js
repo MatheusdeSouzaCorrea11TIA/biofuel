@@ -130,7 +130,7 @@ async function SignUp() {
 
     } catch (error) {
         console.log(error)
-        alert("Não foi possível fazer login")
+        alert("Não foi possível fazer o cadastro")
     }
 }
 

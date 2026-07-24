@@ -5,7 +5,7 @@ main .title {
     justify-content: center;
     align-items: center;
     height: var(--title-section-height);
-    
+      
     .text-box {
         margin-right: 10rem;
         h1 {
@@ -59,6 +59,7 @@ main .team {
         border-radius: 1rem;
 
         p {
+            color: var(--white);
             max-width: 30rem;
             text-align: right;
             font-size: 1.8rem;
