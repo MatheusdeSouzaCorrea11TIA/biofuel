@@ -25,7 +25,7 @@ class Header extends HTMLElement {
                             <i class="bi bi-person-circle"></i>
                             <span class="login-name">Login</span>
                         </a>
-                        <a href="./dashboard.html">
+                        <a href="./dashboard.html" class="dash-btn">
                             Dashboard
                         </a>
                     </div>
@@ -59,7 +59,7 @@ class Header extends HTMLElement {
 
 class Footer extends HTMLElement {
     connectedCallback() { //Tirar o + dps
-        this.innerHTML += ` 
+        this.innerHTML = ` 
             <div class="info-container">
                 <p>2026 — Projeto de TCC: Sistema Inteligente de Reaproveitamento Energético da Vinhaça</p>
                 <div>
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginText = header.querySelector(".login-name")
     const loginButton = header.querySelector(".login-btn")
     const loginAsk = header.querySelector(".login-ask")
+    const dashboard = header.querySelector(".dash-btn")
 
     navLinks.forEach((link) => {
         const linkPath = link.getAttribute("href")
@@ -106,8 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         if (currentPath === "login.html") {
-            loginButton.style.display = "none"
-            loginAsk.style.display = "none"
+            loginButton.classList.add("hidden")
+            loginAsk.classList.add("hidden")
         }
     })
     
@@ -115,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const user = JSON.parse(sessionStorage.getItem("User"))
     if (user) {
         loginText.innerHTML = user.name
-        loginAsk.style.display = "none"
+        loginAsk.classList.add("hidden")
+    } else {
+        dashboard.classList.add("hidden")
     }
 })

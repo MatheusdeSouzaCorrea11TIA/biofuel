@@ -104,3 +104,7 @@ main .img-div {
 button:hover {
     transition: .1s;
 }
+
+.hidden {
+    display: none !important;
+}
