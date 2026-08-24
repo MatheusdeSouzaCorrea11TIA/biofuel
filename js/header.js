@@ -25,7 +25,7 @@ class Header extends HTMLElement {
                             <i class="bi bi-person-circle"></i>
                             <span class="login-name">Login</span>
                         </a>
-                        <a href="./dashboard.html" class="dash-btn">
+                        <a href="./dashboard.html" class="dash-btn hidden">
                             Dashboard
                         </a>
                     </div>
@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
         loginText.innerHTML = user.name
         loginAsk.classList.add("hidden")
-    } else {
-        dashboard.classList.add("hidden")
+        dashboard.classList.remove("hidden")
     }
 })
