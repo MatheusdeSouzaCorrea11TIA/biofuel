@@ -5,6 +5,7 @@ main .title {
     justify-content: center;
     align-items: center;
     height: var(--title-section-height);
+    background: var(--dark-gray);
       
     .text-box {
         margin-right: 10rem;
@@ -50,7 +51,6 @@ main .team {
     }
 
     .message {
-        background: var(--dark-gray);
         display: flex;
         justify-content: space-between;
         align-items: center;

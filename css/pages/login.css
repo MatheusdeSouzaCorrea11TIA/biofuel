@@ -43,8 +43,8 @@ body {
 
         button {
             background: none;
-            color: var(--white);
-            border: 0.1rem solid var(--white);
+            color: var(--fixed-white);
+            border: 0.1rem solid var(--fixed-white);
             font-size: 1.6rem;
             font-weight: 700;
             padding: 1rem 4rem;
@@ -76,7 +76,7 @@ body {
             
             input {
                 color: var(--gray);
-                background: #181818;
+                background: var(--input-bg);
                 border: none;
                 outline: none;
                 padding: 1.25rem;
@@ -100,7 +100,7 @@ body {
 
         button {
             background: var(--purple);
-            color: var(--white);
+            color: var(--fixed-white);
             border: none;
             border-radius: 1rem;
             font-weight: 700;

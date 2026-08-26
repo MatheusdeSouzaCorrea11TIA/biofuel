@@ -16,7 +16,7 @@
 
     --text-font-family: 'Roboto';
 
-    --img-section-height: 50rem;
+    --img-section-height: 60rem;
 
     --white: #FFFFFF;
     --gray: #A8A8A8;
@@ -27,6 +27,7 @@
     --green: #48F2C2;
     --text-color-gradient: linear-gradient(to right, var(--purple),var(--green));
     --login-bg: linear-gradient(135deg, #804BCF, #351B9A);
+    --input-bg: #181818;
 
     --fixed-white: #FFFFFF;
     --fixed-black: #000000;
