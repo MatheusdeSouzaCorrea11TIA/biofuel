@@ -69,18 +69,6 @@ class DashHeader extends HTMLElement {
                     <a href="index.html" class="home-anchor">
                         Bio<span class="purple">Fuel</span>
                     </a>
-                    <div class="login-btn-container">
-                        <a href="./login.html" class="login-btn">
-                            <i class="bi bi-person-circle"></i>
-                            <span class="login-name">Login</span>
-                        </a>
-                        <a href="./dashboard.html" class="dash-btn hidden">
-                            Dashboard
-                        </a>
-                    </div>
-                    <span class="login-ask">
-                        Faça login para acessar a dashboard
-                    </span>
                 </div>
             </div>
 

@@ -1,6 +1,8 @@
 @import url(../base.css);
 
 body {
+    background-color: var(--dash-bg);
     display: flex;
     height: 100svh;
 }
+

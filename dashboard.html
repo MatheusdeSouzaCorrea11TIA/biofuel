@@ -21,7 +21,99 @@
     </dashboard-header>
 
     <main>
-        <section></section>
+        <section class="dashboard">
+            <div class="welcome">
+                <h1>Bem-vindo de volta, <span class="user-name"></span></h1>
+            </div>
+
+            <div class="buttons">
+                <button id="start">Iniciar Destilação</button>
+                <button id="pause">Pausar</button>
+                <button id="stop">Desligar Equipamento</button>
+            </div>
+
+            <div class="monitor">
+                <div class="container-values">
+                    <div class="value-box">
+                        <div class="text-box">
+                            <h2>Temperatura</h2>
+                            <p>0ºC</p>
+                        </div>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="text-box">
+                            <h2>Aquecimento</h2>
+                            <p>Desligado</p>
+                        </div>
+
+                        <i class="bi bi-fire"></i>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="text-box">
+                            <h2>Resfriamento</h2>
+                            <p>Desligado</p>
+                        </div>
+                        
+
+                        <i class="bi bi-fan"></i>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="text-box">
+                            <h2>Pressão</h2>
+                            <p>0.0MPa</p>
+                        </div>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="text-box">
+                            <h2>Nível</h2>
+                            <p>0%</p>
+                        </div>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="text-box">
+                            <h2>Avisos</h2>
+                            <p>0</p>
+                        </div>
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <button id="show-warnings"></button>
+                    </div>
+                </div>
+
+                <div class="container-average">
+                    <div class="bar-graphic">
+
+                    </div>
+
+                    <div class="info-box">
+                        <div class="analise-geral">
+                            <h2>Analise Geral</h2>
+
+                            <p class="analise-value">
+                                0%
+                            </p>
+                            <div class="operation-status">
+                                Operação não iniciada
+                            </div>
+                        </div>
+
+                        <div class="tempo-producao">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="agent">
+            
+        </section>
     </main>
 </body>
 
