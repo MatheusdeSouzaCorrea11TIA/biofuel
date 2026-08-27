@@ -57,6 +57,65 @@ class Header extends HTMLElement {
     }
 }
 
+class DashHeader extends HTMLElement {
+    connectedCallback() { //Tirar o + dps
+        this.innerHTML = ` 
+            <div class="head">
+                <button onclick="toggleModes()">
+                    <i class="bi bi-moon"></i>
+                </button>
+                
+                <div class="main-link">
+                    <a href="index.html" class="home-anchor">
+                        Bio<span class="purple">Fuel</span>
+                    </a>
+                    <div class="login-btn-container">
+                        <a href="./login.html" class="login-btn">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="login-name">Login</span>
+                        </a>
+                        <a href="./dashboard.html" class="dash-btn hidden">
+                            Dashboard
+                        </a>
+                    </div>
+                    <span class="login-ask">
+                        Faça login para acessar a dashboard
+                    </span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./instrucoes.html">Instruções</a>
+                    </li>
+
+                    <li>
+                        <a href="./referencias.html">Referências</a>
+                    </li>
+
+                    <li>
+                        <a href="projeto.html">Projeto</a>
+                    </li>
+
+                    <li>
+                        <a href="./produto.html">Produto</a>
+                    </li>
+
+                    <li>
+                        <a href="./sobrenos.html">Sobre nós</a>
+                    </li>
+
+                    <li>
+                        <a href="./jogo.html">Jogo</a>
+                    </li>
+                </ul>
+
+            </nav>
+        `
+    }
+}
+
 class Footer extends HTMLElement {
     connectedCallback() { //Tirar o + dps
         this.innerHTML = ` 
@@ -84,6 +143,7 @@ class Footer extends HTMLElement {
 
 customElements.define('main-header', Header)
 customElements.define('main-footer', Footer)
+customElements.define('dashboard-header', DashHeader)
 
 
 //Coloca cor roxa na ancora da pagina atual

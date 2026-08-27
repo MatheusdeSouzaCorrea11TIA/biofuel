@@ -23,6 +23,7 @@
     --dark-gray: #1f1f1f;
     --black: #000000;
     --purple: #804BCF;
+    --dark-purple: #221D35;
     --orange: #FF9500;
     --green: #48F2C2;
     --text-color-gradient: linear-gradient(to right, var(--purple),var(--green));
