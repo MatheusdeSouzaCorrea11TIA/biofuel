@@ -7,26 +7,27 @@
 }
 
 /* Global Section Style */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-main.title, main .introduction, main .game {
+main .title,
+main .introduction,
+main .game {
     max-width: 192rem;
 }
 
-/* Title Section */
+/* ===========================
+        TITLE
+=========================== */
+
 main .title {
-    padding: 3rem;
+    padding: clamp(2rem, 5vw, 3rem);
     text-align: right;
     height: var(--title-section-height);
     width: 100%;
 
     .text-box {
         height: 100%;
-        width: fit-content;
+        width: 100%;
+        max-width: 70rem;
         margin-left: auto;
         display: flex;
         flex-direction: column;
@@ -34,34 +35,33 @@ main .title {
     }
 
     h1 {
-    font-size: 7.2rem;
-    font-weight: 800;
+        font-size: 7.2rem;
+        font-weight: 800;
 
-        span { 
-            color: var(--purple); 
+        span {
+            color: var(--purple);
         }
     }
 
     p {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         line-height: 1.6;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255,255,255,.8);
         margin-bottom: 2rem;
     }
 }
 
-main .title p {
-    font-size: 1.6rem;
-}
+/* ===========================
+      INTRODUCTION
+=========================== */
 
-/* Introduction Section */
 main .introduction {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5rem;
-    padding: 7rem;
+    padding: clamp(3rem, 6vw, 7rem);
     text-align: center;
 
     .text-box h2 {
@@ -88,9 +88,9 @@ main .introduction {
 
         p {
             font-size: 1.6rem;
-            opacity: 0.5;
+            opacity: .5;
             max-width: 30rem;
-        }    
+        }
     }
 
     a {
@@ -104,19 +104,25 @@ main .introduction {
     }
 }
 
-/* Image Section */
+/* ===========================
+        IMAGE
+=========================== */
+
 main .img-div {
     background-image: url(../assets/images/home-img1.jpg);
 }
 
-/* Game Section */
+/* ===========================
+        GAME
+=========================== */
+
 main .game {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5rem;
-    padding: 10rem;
+    padding: clamp(3rem, 6vw, 10rem);
     text-align: center;
 
     .text-box h2 {
@@ -128,6 +134,12 @@ main .game {
         display: flex;
         text-align: left;
         gap: 10rem;
+
+        img {
+            width: 30rem;
+            max-width: 100%;
+            height: auto;
+        }
 
         h3 {
             font-size: 2.4rem;
@@ -141,8 +153,7 @@ main .game {
             color: var(--gray);
             font-size: 1.6rem;
             max-width: 40rem;
-        }    
-
+        }
     }
 
     a {
@@ -157,5 +168,109 @@ main .game {
         padding: 1.5rem 2rem;
         border-radius: 1rem;
         margin-left: 3rem;
+    }
+}
+
+/* ===========================
+      TABLETS
+=========================== */
+
+@media (max-width: 768px) {
+
+    main .title {
+        text-align: center;
+        height: auto;
+        min-height: var(--mobile-title-section-height);
+
+        .text-box {
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 5.6rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+
+    main .introduction,
+    main .game {
+        padding: 4rem 2rem;
+    }
+
+    main .introduction .container,
+    main .game .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    main .introduction .container div {
+        width: 100%;
+        max-width: 40rem;
+    }
+
+    main .game .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    main .game .game-page {
+        margin-left: 0;
+    }
+}
+
+/* ===========================
+      CELULARES
+=========================== */
+
+@media (max-width: 768px) {
+
+    main .title {
+        text-align: center;
+        min-height: var(--mobile-title-section-height);
+
+        h1 {
+            margin-top: 10rem;
+            margin-right: 0;
+            font-size: 4.8rem;
+        }
+
+        p {
+            font-size: 1.4rem;
+        }
+    }
+
+    main .introduction,
+    main .game {
+        padding: 3rem 2rem;
+        gap: 3rem;
+    }
+
+    main .introduction .text-box h2,
+    main .game .text-box h2 {
+        font-size: 3.2rem;
+    }
+
+    main .introduction .container,
+    main .game .container {
+        gap: 2rem;
+    }
+
+    main .game .buttons a {
+        display: block;
+        margin: .5rem 0;
+    }
+
+    main .img-div {
+        height: var(--img-section-height);
+
+        h2 {
+            font-size: 3.2rem;
+        }
     }
 }

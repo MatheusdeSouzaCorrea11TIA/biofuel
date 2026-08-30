@@ -74,12 +74,13 @@ main .instructions {
 }
 
 main .step-guide {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
-    align-items: start;
-    padding: 3rem;
-
+    .no-swipper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.4rem;
+        align-items: start;
+        padding: 3rem;
+    }
     .column1,
     .column2,
     .column3 {
@@ -87,39 +88,68 @@ main .step-guide {
         flex-direction: column;
         gap: 2rem;
         height: 100%;
+    }
 
-        div {
+    .step1,
+    .step2,
+    .step3,
+    .step4,
+    .step5, 
+    .step6 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background: var(--dark-gray);
+        border-radius: 1rem;
+        padding: 3rem;
+
+        img {
+            object-fit: cover;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        h2 {
+            font-family: var(--title-font-family);
+            font-weight: 500;
+            font-size: 3.2rem;
+            color: var(--purple);
+        }
+
+        p, ol {
+            font-size: 1.6rem;
+        }
+
+        ol {
             display: flex;
             flex-direction: column;
-            height: 100%;
-            background: var(--dark-gray);
-            border-radius: 1rem;
-            padding: 3rem;
-
-            img {
-                object-fit: cover;
-                margin-top: 3rem;
-                width: 100%;
-            }
-
-            h2 {
-                font-family: var(--title-font-family);
-                font-weight: 500;
-                font-size: 3.2rem;
-                color: var(--purple);
-            }
-
-            p, ol {
-                font-size: 1.6rem;
-            }
-
-            ol {
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-                margin-block: 2rem;
-                color: var(--gray);
-            }
+            gap: 2rem;
+            margin-block: 2rem;
+            color: var(--gray);
         }
+    }
+}
+
+main .stepsSwiper {
+    display: none;
+    padding: 2rem;
+
+    .swiper-wrapper {
+        width: 80vw;
+    }
+
+    .swiper-slide {
+        display: flex;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .no-swipper {
+        display: none !important;
+    }
+
+    .stepsSwiper {
+        display: block !important;
     }
 }

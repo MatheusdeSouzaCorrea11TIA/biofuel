@@ -5,18 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/pages/produto.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/responsive.css">
     <script src="./js/header.js"></script>
     <script src="./js/changeMode.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-    <script type="module">
+    <script type="module" defer>
         const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
-        loop: true
+        loop: true,
+
+        pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
     </script>
 
@@ -57,9 +65,91 @@
             </div>
 
             <div class="swiper">
+                <h2 class="gradient-text" style="font-size: 3.6rem;">Total ≈ R$700</h2>
                 <div class="swiper-wrapper">
+
                     <div class="swiper-slide">
-                        <img src="./assets/images/ESP32.png" alt="Imagem">
+                        <img src="./assets/images/ESP32.png" alt="ESP32">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Microcontrolador ESP 32</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">35,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/displayLCD.png" alt="Display LCD">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Display LCD</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">35,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/buzzer.png" alt="Buzzer Piezo">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Buzzer Piezo</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">7,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/leds.png" alt="Leds coloridos">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Leds Coloridos</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">12,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/modulo-rele.png" alt="Modulo Relé">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Módulo Relé</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">18,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/protoboard.png" alt="Protoboard">
                         <div class="text-box">
                             <h2 class="gradient-text">Protoboard</h2>
 
@@ -67,17 +157,66 @@
                                 <p>Valor:</p>
                                 <br>
                                 <div class="price-box">
-                                    <span class="prefix">
-                                        R$
-                                    </span>
-                                    <span class="price-bg">
-                                        99.99
-                                    </span>
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">25,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/sensor-nivel.png" alt="Sensor de Nível">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Sensor de Nível</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">20,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/sensor-pressao.png" alt="Sensor de Pressão">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Sensor de Pressão</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">35,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="./assets/images/slider/sensor-temperatura.png" alt="Sensor de Temperatura">
+                        <div class="text-box">
+                            <h2 class="gradient-text">Sensor de Temperatura</h2>
+
+                            <div class="valor">
+                                <p>Valor:</p>
+                                <br>
+                                <div class="price-box">
+                                    <span class="prefix">R$</span>
+                                    <span class="price-bg">18,00</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </section>
     </main>

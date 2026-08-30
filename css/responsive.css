@@ -1,42 +1,75 @@
-@media (max-width: 375px) {
-    :root {
-        --title-section-height: 60rem;
-    }
+@media (max-width: 768px) {
+    main {
+        section.title {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: var(--mobile-title-section-height);
+            width: 100%;
 
-    section.title {
-        text-align: center;
-
-        h1 {
-            font-size: 6.4rem;
-        }
-    }
-
-    section:not(.title) {
-        display: flex;
-        flex-direction: column;
-        padding: 3rem;
-
-        .text-box {
-            h2 {
-                font-size: 3.2rem;
+            h1 {
+                margin-top: 10rem;
+                margin-right: 0rem;
+                font-size: 6.4rem;
             }
 
-            p {
-                font-size: 1.6rem;
+            .gradient-background {
+                height: var(--mobile-title-section-height);
             }
         }
 
-        div {
+        section:not(.title) {
             display: flex;
             flex-direction: column;
-            text-align: center;
-        }
-    }
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
 
-    main .game {
-        .buttons a {
-            margin: 0;
-            margin-top: 1rem;
+            h2 {
+                font-size: 2.4rem;
+            }
+            
+            .text-box {
+                h2 {
+                    font-size: 3.2rem;
+                }
+
+                p {
+                    font-size: 1.6rem;
+                }
+            }
+
+            div:not(.swiper):not(.swiper-wrapper):not(.swiper-slide) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .game {
+            .buttons a {
+                margin: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        section.img-div {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: var(--img-section-height);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            h2 {
+                color: var(--fixed-white);
+                font-family: var(--title-font-family);
+                font-size: 3.2rem !important;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
         }
     }
 }

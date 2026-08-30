@@ -6,10 +6,13 @@ body {
 
 main .title {
     background: url(../../assets/images/projeto-img1.jpg);
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: var(--title-section-height);
+    width: 100%;
     
     h1 {
         position: absolute;
@@ -47,7 +50,7 @@ main .project {
         justify-content: center;
         
         p, li {
-            font-size: 2.4rem;
+            font-size: 1.6rem;
             color: var(--gray);
         }
 
@@ -171,18 +174,30 @@ main .sensors {
             font-size: 5.6rem;
             font-family: var(--title-font-family);
             font-weight: 500;
+            text-align: center;
         }
 
         .infinite-3dslider {
-            position: relative;
-            margin: 10rem auto 0 0;
-            width: 20rem;
-            height: 20rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            max-width: 192rem;
+            height: 40rem;
+            border-inline: var(--white) 0.1rem solid;
+            overflow: hidden;
 
-            .logo-container {
+            .swiper-slide {
+                text-align: center;
+                height: 40rem;
+                width: 40rem;
+
+                p {
+                    font-family: var(--title-font-family);
+                    font-size: 3.2rem;
+                }
+
+                img {
+                    width: 80%;
+                }
+            }
+            /* .logo-container {
                 background: var(--black);
                 display: flex;
                 justify-content: center;
@@ -209,24 +224,49 @@ main .sensors {
                 height: 10rem;
                 width: 10rem;
                 z-index: 1;
+            } */
+
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    div.project {
+        .project-info {
+            display: flex;
+        }
+
+        div.card1,
+        div.card2 {
+            .diamond {
+                height: 30rem;
+                width: 30rem;
             }
-
-            .slider-item {
-                position: absolute;
-                margin-block: auto;
-                text-align: center;
-                height: 20rem;
+            
+            img {
                 width: 20rem;
-
-                p {
-                    font-family: var(--title-font-family);
-                    font-size: 2.4rem;
-                }
-
-                img {
-                    width: 60%;
-                }
             }
         }
+
+        .paragraph-container {
+            li {
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+    section.chemical {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40vw;
+
+        img {
+            width: 80vw;
+        }
+    }
+
+    div.esp32 {
+        gap: 1rem !important;
     }
 }

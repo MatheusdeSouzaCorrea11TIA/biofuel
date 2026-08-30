@@ -4,7 +4,7 @@ main .title {
     display: flex;
     justify-content: right;
     align-items: center;
-    background-image: url(../../assets/images/produto-img.jpg);
+    background-image: url(../../assets/images/referencias-img.jpg);
     text-align: right;
     height: var(--title-section-height);
 

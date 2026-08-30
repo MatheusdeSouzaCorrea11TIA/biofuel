@@ -99,7 +99,7 @@ main-header {
 }
 
 main-footer {
-    margin-block: auto 1.5rem;
+    margin-top: 1.5rem;
     margin-inline: auto;
     display: flex;
     justify-content: center;
@@ -108,6 +108,8 @@ main-footer {
     max-width: 100rem;
     font-size: 1.2rem;
     font-weight: 600;
+    padding: 2rem;
+
 
     .info-container {
         border-right: 0.3rem solid var(--white);
@@ -226,15 +228,38 @@ dashboard-header {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
     main-header {
         nav {
             display: grid;
         }
+
+        button {
+            position: absolute;
+            top: 19.5rem;
+        }
     }
 
     main-footer {
+        background: var(--dash-bg);
+        color: var(--fixed-white);
+        padding: 2rem;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
+        text-align: center;
+        width: 100%;
+
+        .info-container {
+            border-right: none;
+            border-bottom: solid 0.1rem var(--fixed-white);
+            padding: 0 0 1rem 0;
+        }
+
+        .tecnologies-container .img-container  {
+            justify-content: center;
+        }
+
         p {
             font-size: 1rem;
         }

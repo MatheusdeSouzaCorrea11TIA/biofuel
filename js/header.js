@@ -12,7 +12,7 @@ class Header extends HTMLElement {
                     </li>
 
                     <li>
-                        <a href="projeto.html">Projeto</a>
+                        <a href="./projeto.html">Projeto</a>
                     </li>
                 </ul>
 
@@ -83,7 +83,7 @@ class DashHeader extends HTMLElement {
                     </li>
 
                     <li>
-                        <a href="projeto.html">Projeto</a>
+                        <a href="./projeto.html">Projeto</a>
                     </li>
 
                     <li>
@@ -145,8 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dashboard = header.querySelector(".dash-btn")
 
     navLinks.forEach((link) => {
-        const linkPath = link.getAttribute("href")
-        
+        const linkPath = link.getAttribute("href").slice(2) //Remove o ./
         
         if (currentPath === "" && linkPath === "./index.html") {
             link.classList.add("active-page")

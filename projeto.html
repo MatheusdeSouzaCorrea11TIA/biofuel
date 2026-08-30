@@ -5,10 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/pages/projeto.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/responsive.css">
     <script src="./js/header.js"></script>
     <script src="./js/changeMode.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            new Swiper(".infinite-3dslider", {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+                loop: true,
+                speed: 5000,
+
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
+                },
+
+                allowTouchMove: false,
+            });
+        });
+    </script>
+
+    <style> 
+        .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+    </style>
     
     <title>BioFuel - Projeto</title>
 </head>
@@ -91,41 +117,49 @@
 
             <div class="project-sensors">
                 <h2>Sensores do Projeto</h2>
-                <div class="infinite-3dslider">
-                    <div class="logo-container">
-                        <img class="logo" src="./assets/icons/vortex-logo.png" alt="Logo do Vortex Horizon">
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/displayLCD.png" alt="Display LCD">
-                        <p>Display LCD</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/buzzer.png" alt="Buzzer Piezo">
-                        <p>Buzzer Piezo</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/leds.png" alt="Leds coloridos">
-                        <p>Leds coloridos</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/modulo-rele.png" alt="Modulo Relé">
-                        <p>Modulo Relé</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/protoboard.png" alt="Protoboard">
-                        <p>Protoboard</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/sensor-nivel.png" alt="Sensor de nivel">
-                        <p>Sensor de Nível</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/sensor-pressao.png" alt="Sensor de pressao">
-                        <p>Sensor de Pressão</p>
-                    </div>
-                    <div class="slider-item">
-                        <img src="../assets/images/slider/sensor-temperatura.png" alt="Sensor de temperatura">
-                        <p>Sensor de Temperatura</p>
+                <div class="swiper infinite-3dslider">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/displayLCD.png" alt="Display LCD">
+                            <p>Display LCD</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/buzzer.png" alt="Buzzer Piezo">
+                            <p>Buzzer Piezo</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/leds.png" alt="Leds coloridos">
+                            <p>Leds Coloridos</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/modulo-rele.png" alt="Módulo Relé">
+                            <p>Módulo Relé</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/protoboard.png" alt="Protoboard">
+                            <p>Protoboard</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/sensor-nivel.png" alt="Sensor de Nível">
+                            <p>Sensor de Nível</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/sensor-pressao.png" alt="Sensor de Pressão">
+                            <p>Sensor de Pressão</p>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="../assets/images/slider/sensor-temperatura.png" alt="Sensor de Temperatura">
+                            <p>Sensor de Temperatura</p>
+                        </div>
+
                     </div>
                 </div>
             </div>

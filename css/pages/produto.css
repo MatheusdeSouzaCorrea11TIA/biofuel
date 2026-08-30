@@ -53,8 +53,9 @@ main .miniature {
             width: 60rem;
             height: 60rem;
             position: absolute;
-            background: rgba(255,255,255,0.5);
+            background: var(--white);
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.25;
         }
 
         img {
@@ -92,13 +93,22 @@ main .itens-usados {
     }
 
     .swiper {
-        display: flex;
         width: 100%;
         overflow-x: hidden;
+        margin-top: 5rem;
 
+        .swiper-pagination-bullet{
+            background-color: var(--fixed-white);
+        }
+
+        .swiper-button-prev, 
+        .swiper-button-next {
+            color: var(--fixed-white);
+        }
         .swiper-slide {
             display: flex;
-            padding: 5rem;
+            padding: 5rem 7rem;
+            height: 40rem;
 
             .text-box {
                 display: flex;
@@ -107,10 +117,9 @@ main .itens-usados {
             }
 
             img {
-                border-inline: 0.1rem solid var(--white);
-                padding: 2rem;
+                border: 0.1rem solid var(--white);
                 width: 40rem;
-                width: 40rem;
+                object-fit: cover;
                 margin-right: 5rem;
             }
             p {
@@ -130,6 +139,76 @@ main .itens-usados {
                 border-radius: 1rem;
                 padding: 0.25rem 1rem;
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        section.miniature {
+
+            .info {
+                margin: 0;
+                margin-top: 3rem;
+                color: var(--white);
+                opacity: 0.5;
+            }
+            
+            .maquete {
+                margin-top: 3rem;
+                .diamond {
+                    height: 30rem;
+                    width: 30rem;
+                }
+    
+                img {
+                    width: 90svw;
+                }
+            }
+        } 
+
+        div.swiper {
+            div.swiper-slide {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 5rem 7rem;
+                height: 20rem;
+
+                .text-box {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                img {
+                    border: 0.1rem solid var(--white);
+                    width: 20rem !important;
+                    object-fit: cover;
+                    margin-right: 0 !important;
+                    margin-bottom: 2rem;
+                }
+                p {
+                    color: var(--white);
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                }
+
+                .valor {
+                    margin-top: 2rem;    
+                }
+
+                .price-box {
+                    display: flex;
+                    flex-direction: row !important;
+                    
+                    span {
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    }
+                }
+            }    
         }
     }
 }

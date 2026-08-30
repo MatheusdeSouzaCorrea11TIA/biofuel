@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/pages/instrucoes.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/responsive.css">
     <script src="./js/header.js"></script>
     <script src="./js/changeMode.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
     <title>BioFuel - Instruções de Uso</title>
 </head>
 
@@ -82,118 +83,250 @@
         </section>
 
         <section class="step-guide">
-            <div class="column1">
-                <div class="step1">
-                    <h2>1. Preparo do Mosto</h2>
-                    <p>
-                        Nesta etapa inicial, ocorre a preparação da solução que será fermentada posteriormente pelas
-                        leveduras.
-                        <br><br>
-                        Procedimentos:
-                    <ol>
-                        <li>Adicione água e açúcar ao misturador na proporção aproximada de 3 litros de água para cada 1
-                            kg de açúcar.</li>
-                        <li>Ajuste o pH da solução entre 4,5 e 5,5, garantindo um ambiente adequado para a fermentação.
-                        </li>
-                        <li>Acrescente nutrientes conforme a recomendação técnica para melhorar o desempenho das
-                            leveduras.</li>
-                        <li>Mantenha o sistema de mistura ativo até a completa dissolução do açúcar.</li>
-                    </ol>
-                    </p>
-                </div>
-                <div class="step4">
-                    <h2>4. Purificação</h2>
-                    <p>
-                        Nesta fase ocorre a elevação da pureza do etanol obtido.
-                        <br><br>
-                        Procedimentos:
-                    <ol>
-                        <li>Encaminhe o destilado para a coluna de purificação.</li>
-                        <li>Encaminhe o destilado para a coluna de purificação.</li>
-                        <li> A coluna removerá parte da água e impurezas presentes.</li>
-                        <li>Colete o etanol purificado no recipiente fina</li>
-                    </ol>
+            <div class="no-swipper">
+                <div class="column1">
+                    <div class="step1">
+                        <h2>1. Preparo do Mosto</h2>
+                        <p>
+                            Nesta etapa inicial, ocorre a preparação da solução que será fermentada posteriormente pelas
+                            leveduras.
+                            <br><br>
+                            Procedimentos:
+                        <ol>
+                            <li>Adicione água e açúcar ao misturador na proporção aproximada de 3 litros de água para cada 1
+                                kg de açúcar.</li>
+                            <li>Ajuste o pH da solução entre 4,5 e 5,5, garantindo um ambiente adequado para a fermentação.
+                            </li>
+                            <li>Acrescente nutrientes conforme a recomendação técnica para melhorar o desempenho das
+                                leveduras.</li>
+                            <li>Mantenha o sistema de mistura ativo até a completa dissolução do açúcar.</li>
+                        </ol>
+                        </p>
+                    </div>
+                    <div class="step4">
+                        <h2>4. Purificação</h2>
+                        <p>
+                            Nesta fase ocorre a elevação da pureza do etanol obtido.
+                            <br><br>
+                            Procedimentos:
+                        <ol>
+                            <li>Encaminhe o destilado para a coluna de purificação.</li>
+                            <li>Encaminhe o destilado para a coluna de purificação.</li>
+                            <li> A coluna removerá parte da água e impurezas presentes.</li>
+                            <li>Colete o etanol purificado no recipiente fina</li>
+                        </ol>
 
-                    </p>
-                    <p>
-                    Objetivo da Etapa:
-
-                    Aumentar a concentração alcoólica e melhorar a qualidade do bioetanol produzido.
-
-                    Recomendação:
-
-                    Uma purificação eficiente contribui diretamente para um combustível de melhor desempenho.
-                    </p>
-                </div>
-            </div>
-            <div class="column2">
-                <div class="step2">
-                    <h2>2. Fermentação</h2>
-                    <p>
-                        A fermentação é a etapa responsável pela conversão dos açúcares em etanol por meio da ação das
-                        leveduras.
-
-                        <br><br>
-
-                        Procedimentos:
-                    <ol>
-                        <li>Transfira o mosto preparado para o fermentador.</li>
-                        <li>Adicione a levedura responsável pelo processo fermentativo.</li>
-                        <li>Controle a temperatura entre 30 °C e 32 °C.</li>
-                        <li>Mantenha o sistema completamente fechado para preservar o ambiente anaeróbico.</li>
-                        <li>Aguarde o período de fermentação, estimado entre 24 e 48 horas.</li>
-                    </ol>
-
-                    </p>
-                    <p>
+                        </p>
+                        <p>
                         Objetivo da Etapa:
 
-                        Produzir etanol através da transformação biológica dos açúcares presentes no mosto.
+                        Aumentar a concentração alcoólica e melhorar a qualidade do bioetanol produzido.
 
                         Recomendação:
 
-                        Evite abrir o fermentador durante o processo para impedir contaminações e perdas de eficiência.
-                    </p>
+                        Uma purificação eficiente contribui diretamente para um combustível de melhor desempenho.
+                        </p>
+                    </div>
                 </div>
-                <div class="step5">
-                    <h2>5. Etanol Final</h2>
-                    <p>
-                        Após todas as etapas, o bioetanol estará pronto para armazenamento e utilização.
-                    </p>
-                    <img src="./assets/images/etanol-ilustration.jpg" alt="Foto de recipientes com Etanol">
+                <div class="column2">
+                    <div class="step2">
+                        <h2>2. Fermentação</h2>
+                        <p>
+                            A fermentação é a etapa responsável pela conversão dos açúcares em etanol por meio da ação das
+                            leveduras.
+
+                            <br><br>
+
+                            Procedimentos:
+                        <ol>
+                            <li>Transfira o mosto preparado para o fermentador.</li>
+                            <li>Adicione a levedura responsável pelo processo fermentativo.</li>
+                            <li>Controle a temperatura entre 30 °C e 32 °C.</li>
+                            <li>Mantenha o sistema completamente fechado para preservar o ambiente anaeróbico.</li>
+                            <li>Aguarde o período de fermentação, estimado entre 24 e 48 horas.</li>
+                        </ol>
+
+                        </p>
+                        <p>
+                            Objetivo da Etapa:
+
+                            Produzir etanol através da transformação biológica dos açúcares presentes no mosto.
+
+                            Recomendação:
+
+                            Evite abrir o fermentador durante o processo para impedir contaminações e perdas de eficiência.
+                        </p>
+                    </div>
+                    <div class="step5">
+                        <h2>5. Etanol Final</h2>
+                        <p>
+                            Após todas as etapas, o bioetanol estará pronto para armazenamento e utilização.
+                        </p>
+                        <img src="./assets/images/etanol-ilustration.jpg" alt="Foto de recipientes com Etanol">
+                    </div>
+                </div>
+                <div class="column3">
+                    <div class="step3">
+                        <h2>3. Destilação</h2>
+                        <p>
+                            Após a fermentação, inicia-se a separação do etanol do restante da mistura líquida.
+                            <br><br>
+                            Procedimentos:
+                        <ol>
+                            <li>Transfira o líquido fermentado para o balão de destilação.</li>
+                            <li> Inicie o aquecimento controlado do sistema.</li>
+                            <li>O vapor rico em etanol passará pelo condensador, retornando ao estado líquido.</li>
+                            <li>Colete o destilado composto principalmente por etanol e água.</li>
+                        </ol>
+
+                        </p>
+                        <p>
+                        Objetivo da etapa:
+
+                        Separar o etanol produzido durante a fermentação através das diferenças de temperatura de ebulição
+                        </p>
+                    </div>
+                    <div class="step6">
+                        <h2>6. Vídeo Demonstrativo </h2>
+                        <p>
+                            Assista ao vídeo demonstrativo para visualizar todas as etapas do funcionamento do sistema na
+                            prática e compreender melhor o fluxo completo da produção.
+                        </p>
+                        <!-- Video do YT -->
+                        <a href="https://www.youtube.com/watch?v=R5kmvJMM1Kk">
+                            <img src="https://i.ytimg.com/vi/R5kmvJMM1Kk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB_wn1RHlqqnrM3qeHWRzS8FeRFLg" alt="Imagem do video do Manual do Mundo">
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="column3">
-                <div class="step3">
-                    <h2>3. Destilação</h2>
-                    <p>
-                        Após a fermentação, inicia-se a separação do etanol do restante da mistura líquida.
-                        <br><br>
-                        Procedimentos:
-                    <ol>
-                        <li>Transfira o líquido fermentado para o balão de destilação.</li>
-                        <li> Inicie o aquecimento controlado do sistema.</li>
-                        <li>O vapor rico em etanol passará pelo condensador, retornando ao estado líquido.</li>
-                        <li>Colete o destilado composto principalmente por etanol e água.</li>
-                    </ol>
 
-                    </p>
-                    <p>
-                    Objetivo da etapa:
+            <div class="swiper stepsSwiper">
+                <div class="swiper-wrapper">
 
-                    Separar o etanol produzido durante a fermentação através das diferenças de temperatura de ebulição
-                    </p>
-                </div>
-                <div class="step6">
-                    <h2>6. Vídeo Demonstrativo </h2>
-                    <p>
-                        Assista ao vídeo demonstrativo para visualizar todas as etapas do funcionamento do sistema na
-                        prática e compreender melhor o fluxo completo da produção.
-                    </p>
-                    <!-- Video do YT -->
-                    <a href="https://www.youtube.com/watch?v=R5kmvJMM1Kk">
-                        <img src="https://i.ytimg.com/vi/R5kmvJMM1Kk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB_wn1RHlqqnrM3qeHWRzS8FeRFLg" alt="Imagem do video do Manual do Mundo">
-                    </a>
+                    <div class="swiper-slide">
+                        <div class="step1">
+                            <h2>1. Preparo do Mosto</h2>
+                            <p>
+                                Nesta etapa inicial, ocorre a preparação da solução que será fermentada posteriormente pelas
+                                leveduras.
+                                <br><br>
+                                Procedimentos:
+                            </p>
+
+                            <ol>
+                                <li>Adicione água e açúcar ao misturador na proporção aproximada de 3 litros de água para cada 1 kg de açúcar.</li>
+                                <li>Ajuste o pH da solução entre 4,5 e 5,5, garantindo um ambiente adequado para a fermentação.</li>
+                                <li>Acrescente nutrientes conforme a recomendação técnica para melhorar o desempenho das leveduras.</li>
+                                <li>Mantenha o sistema de mistura ativo até a completa dissolução do açúcar.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="step2">
+                            <h2>2. Fermentação</h2>
+                            <p>
+                                A fermentação é a etapa responsável pela conversão dos açúcares em etanol por meio da ação das
+                                leveduras.
+                                <br><br>
+                                Procedimentos:
+                            </p>
+
+                            <ol>
+                                <li>Transfira o mosto preparado para o fermentador.</li>
+                                <li>Adicione a levedura responsável pelo processo fermentativo.</li>
+                                <li>Controle a temperatura entre 30 °C e 32 °C.</li>
+                                <li>Mantenha o sistema completamente fechado para preservar o ambiente anaeróbico.</li>
+                                <li>Aguarde o período de fermentação, estimado entre 24 e 48 horas.</li>
+                            </ol>
+
+                            <p>
+                                <strong>Objetivo da Etapa:</strong><br>
+                                Produzir etanol através da transformação biológica dos açúcares presentes no mosto.
+                                <br><br>
+                                <strong>Recomendação:</strong><br>
+                                Evite abrir o fermentador durante o processo para impedir contaminações e perdas de eficiência.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="step3">
+                            <h2>3. Destilação</h2>
+                            <p>
+                                Após a fermentação, inicia-se a separação do etanol do restante da mistura líquida.
+                                <br><br>
+                                Procedimentos:
+                            </p>
+
+                            <ol>
+                                <li>Transfira o líquido fermentado para o balão de destilação.</li>
+                                <li>Inicie o aquecimento controlado do sistema.</li>
+                                <li>O vapor rico em etanol passará pelo condensador, retornando ao estado líquido.</li>
+                                <li>Colete o destilado composto principalmente por etanol e água.</li>
+                            </ol>
+
+                            <p>
+                                <strong>Objetivo da etapa:</strong><br>
+                                Separar o etanol produzido durante a fermentação através das diferenças de temperatura de ebulição.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="step4">
+                            <h2>4. Purificação</h2>
+                            <p>
+                                Nesta fase ocorre a elevação da pureza do etanol obtido.
+                                <br><br>
+                                Procedimentos:
+                            </p>
+
+                            <ol>
+                                <li>Encaminhe o destilado para a coluna de purificação.</li>
+                                <li>Realize a separação das impurezas.</li>
+                                <li>A coluna removerá parte da água e impurezas presentes.</li>
+                                <li>Colete o etanol purificado no recipiente final.</li>
+                            </ol>
+
+                            <p>
+                                <strong>Objetivo da Etapa:</strong><br>
+                                Aumentar a concentração alcoólica e melhorar a qualidade do bioetanol produzido.
+                                <br><br>
+                                <strong>Recomendação:</strong><br>
+                                Uma purificação eficiente contribui diretamente para um combustível de melhor desempenho.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="step5">
+                            <h2>5. Etanol Final</h2>
+
+                            <p>
+                                Após todas as etapas, o bioetanol estará pronto para armazenamento e utilização.
+                            </p>
+
+                            <img src="./assets/images/etanol-ilustration.jpg" alt="Foto de recipientes com Etanol">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="step6">
+                            <h2>6. Vídeo Demonstrativo</h2>
+
+                            <p>
+                                Assista ao vídeo demonstrativo para visualizar todas as etapas do funcionamento do sistema na
+                                prática e compreender melhor o fluxo completo da produção.
+                            </p>
+
+                            <a href="https://www.youtube.com/watch?v=R5kmvJMM1Kk">
+                                <img src="https://i.ytimg.com/vi/R5kmvJMM1Kk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB_wn1RHlqqnrM3qeHWRzS8FeRFLg"
+                                    alt="Imagem do vídeo do Manual do Mundo">
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -203,6 +336,14 @@
     <main-footer>
 
     </main-footer>
+
+    <script>
+        const swiper = new Swiper(".stepsSwiper", {
+            slidesPerView: 1.5,
+            spaceBetween: 40,
+            grabCursor: true,
+        });
+    </script>
 </body>
 
 </html>
