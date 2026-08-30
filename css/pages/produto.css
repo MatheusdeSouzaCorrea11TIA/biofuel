@@ -98,12 +98,12 @@ main .itens-usados {
         margin-top: 5rem;
 
         .swiper-pagination-bullet{
-            background-color: var(--fixed-white);
+            background-color: var(--white);
         }
 
         .swiper-button-prev, 
         .swiper-button-next {
-            color: var(--fixed-white);
+            color: var(--white);
         }
         .swiper-slide {
             display: flex;
@@ -134,7 +134,7 @@ main .itens-usados {
             }
 
             .price-bg {
-                color: var(--black);
+                color: var(--fixed-black);
                 background: var(--green);
                 border-radius: 1rem;
                 padding: 0.25rem 1rem;

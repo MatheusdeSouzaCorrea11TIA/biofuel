@@ -5,7 +5,9 @@ main .title {
     justify-content: center;
     align-items: center;
     height: var(--title-section-height);
-    background: var(--dark-gray);
+    background-image: url(../../assets/images/sobrenos-img.jpg);
+    background-position: center;
+    background-size: cover;
       
     .text-box {
         margin-right: 10rem;
@@ -13,6 +15,7 @@ main .title {
             font-family: var(--title-font-family);
             font-size: 5.6rem;
             font-weight: 500;
+            color: var(--fixed-white);
 
             span {
                 font-family: var(--title-font-family);
@@ -20,7 +23,7 @@ main .title {
         }
         
         p {
-            color: var(--gray);
+            color: var(--fixed-white);
             font-size: 1.6rem;
             max-width: 40rem;
         }
