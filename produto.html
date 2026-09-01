@@ -9,7 +9,7 @@
     <script src="./js/changeMode.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
+    
     <script type="module" defer>
         const swiper = new Swiper('.swiper', {
         // Optional parameters
@@ -26,6 +26,15 @@
                 prevEl: '.swiper-button-prev',
             },
         });
+    </script>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+        }
+    }
     </script>
 
     <title>BioFuel - Informações do Produto</title>
@@ -46,7 +55,9 @@
 
             <h2>Maquete do projeto</h2>
 
-            <div class="maquete">
+            <div id="viewer"></div>
+
+            <div class="maquete hidden">
                 <div class="diamond"></div>
                 <img src="./assets/images/produto-maquete.png" alt="Imagem ilustrativa da maquete do projeto">
             </div>
@@ -224,6 +235,8 @@
     <main-footer>
 
     </main-footer>
+
+    <script src="./js/model.js" type="module"></script>
 </body>
 
 </html>

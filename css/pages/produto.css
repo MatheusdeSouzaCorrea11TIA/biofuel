@@ -1,5 +1,12 @@
 @import url(../base.css);
 
+#viewer {
+    width: 80rem;
+    aspect-ratio: 16/9;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
 main .title {
     display: flex;
     justify-content: right;
@@ -23,6 +30,7 @@ main .miniature {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 4rem;
 
