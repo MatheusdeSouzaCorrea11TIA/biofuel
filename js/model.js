@@ -6,8 +6,10 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 const container = document.getElementById("viewer");
 
 // Cena
+const root = document.documentElement
+const bgColor = root.style.getPropertyValue('--black').trim();
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000);
+scene.background = new THREE.Color(bgColor);
 
 // Camera (Ajustado para pegar as dimensões reais do container)
 const camera = new THREE.PerspectiveCamera(
