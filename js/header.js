@@ -146,21 +146,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navLinks.forEach((link) => {
         const linkPath = link.getAttribute("href").slice(2) //Remove o ./
-        
+
         if (currentPath === "" && linkPath === "./index.html") {
             link.classList.add("active-page")
         } else if (currentPath === linkPath) {
             link.classList.add("active-page")
         }
-        
+
         if (currentPath === "login.html") {
             loginButton.classList.add("hidden")
             loginAsk.classList.add("hidden")
         }
     })
-    
+
     //Auto Login
-    const user = JSON.parse(sessionStorage.getItem("User"))
+    const user = JSON.parse(localStorage.getItem("User"))
     if (user) {
         loginText.innerHTML = user.name
         loginAsk.classList.add("hidden")

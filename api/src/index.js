@@ -97,6 +97,11 @@ app.post("/signup", async (req,res) => {
 
             res.status(200).json({
                 message: "Cadastro realizado com sucesso!",
+                user: {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email
+                }
             })
         })
     })

@@ -20,6 +20,7 @@ Object.values(signupInput).forEach(input => {
 });
 
 const PORT = 3000
+const backendURL = `https://biofuel-backend-alpha.vercel.app`
 
 async function Login() {
     if (!loginInput.email.value.trim() || !loginInput.password.value.trim()) {
@@ -42,7 +43,7 @@ async function Login() {
     }
     
     try {
-        const response = await fetch(`http://localhost:${PORT}/login`, {
+        const response = await fetch(`${backendURL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -56,10 +57,8 @@ async function Login() {
         const data = await response.json()
         
         if (response.ok) {
-            sessionStorage.setItem("User", JSON.stringify(data.user))
-
+            SaveAndRedirect(data.user)
             alert(data.message) //Login sucesso
-            console.log(data.user)
         } else {
             alert(data.message || "Email ou senha inválidos")
         }
@@ -108,7 +107,7 @@ async function SignUp() {
     }
     
     try {
-        const response = await fetch(`http://localhost:${PORT}/signup`, {
+        const response = await fetch(`${backendURL}/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -123,7 +122,9 @@ async function SignUp() {
         const data = await response.json()
 
         if (response.ok) {
+            SaveAndRedirect(data.user)
             alert(data.message) //Cadastro sucesso
+            return
         } else {
             alert(data.message || "Erro ao realizar cadastro")
         }
@@ -150,4 +151,9 @@ function ToggleDivisor() {
         btn.innerHTML = "Cadastre-se"
         divisor.classList.add("right")
     }
+}
+
+function SaveAndRedirect(user) {
+    localStorage.setItem("User", JSON.stringify(user))
+    window.location.href = "/dashboard.html";
 }

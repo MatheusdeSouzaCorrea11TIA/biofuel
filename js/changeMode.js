@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body
     
     //Darkmode : bool
-    const darkModeValue = JSON.parse(sessionStorage.getItem("darkmode"))
+    const darkModeValue = JSON.parse(localStorage.getItem("darkmode"))
     changeColors(darkModeValue)
     
     if (darkModeValue) body.classList.add("darkmode")
@@ -14,7 +14,7 @@ function toggleModes() {
     body.classList.toggle("darkmode")
     
     const isDarkmode = body.classList.contains("darkmode")
-    sessionStorage.setItem("darkmode", JSON.stringify(isDarkmode))
+    localStorage.setItem("darkmode", JSON.stringify(isDarkmode))
     console.log(isDarkmode)
     changeColors(isDarkmode)
 }
