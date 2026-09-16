@@ -6,21 +6,22 @@ body {
     justify-content: center;
     align-items: center;
     max-height: 100svh;
-    overflow: hidden0;
+    overflow: hidden;
 }
 
 .main-box {
     position: relative;
     display: flex;
     background: var(--black);
-    padding: 4rem;
-    height: 70rem;
+    padding: 2rem;
+    height: 80svh;
     aspect-ratio: 16/10;
     border-radius: 3rem;
+    margin-top: 4rem;
 
     .divisor {
         position: absolute;
-        height: calc(100% - 8rem);
+        height: calc(100% - 4rem);
         width: calc(50% - 4rem);
         left: 4rem;
         display: flex;

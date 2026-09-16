@@ -1,8 +1,297 @@
 @import url(../base.css);
+@import url(../agent.css);
 
 body {
     background-color: var(--dash-bg);
     display: flex;
-    height: 100svh;
+    height: fit-content;
+}
+
+main {
+    display: flex;
+}
+
+/* ---------- layout geral ---------- */
+
+.dashboard {
+    width: 100%;
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 3rem 3rem 4rem;
+}
+
+.welcome h1 {
+    font-size: 2.6rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.welcome .user-name {
+    color: var(--purple);
+    font-weight: 700;
+}
+
+/* ---------- botões de controle ---------- */
+
+.buttons {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.buttons button {
+    border: none;
+    border-radius: 999px;
+    padding: 1.1rem 2.4rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--fixed-black);
+    transition: filter .15s, transform .1s;
+}
+
+.buttons button:hover {
+    filter: brightness(1.1);
+}
+
+.buttons button:active {
+    transform: scale(.97);
+}
+
+#start   { background: var(--green); }
+#pause   { background: var(--orange); }
+#stop    {
+    background: #FF3B5C;
+    color: var(--fixed-white);
+}
+
+.buttons button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+    filter: none;
+}
+
+/* ---------- grid de valores ---------- */
+
+.container-values {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.value-box {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1.4rem;
+    padding: 1.8rem 2rem;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.value-box .text-box h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--gray);
+    margin-bottom: .6rem;
+}
+
+.value-box .text-box p {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* status ligado/desligado (aquecimento/resfriamento) */
+.status-box .status {
+    font-size: 1.9rem;
+}
+
+.status.on  { color: var(--green); }
+.status.off { color: var(--gray); }
+
+.status-box i {
+    position: absolute;
+    right: 1.8rem;
+    bottom: 1.6rem;
+    font-size: 3.2rem;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color .2s;
+}
+
+.status-box.active i {
+    color: var(--green);
+}
+
+.status-box {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.status-box i {
+    position: static; /* tira do position:absolute que tinha antes */
+    align-self: flex-end;
+    font-size: 2.8rem;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color .2s;
+}
+
+.status-box.active i {
+    color: var(--green);
+}
+
+.pause-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--gray);
+    color: var(--gray);
+    border-radius: 999px;
+    padding: .5rem 1.4rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+}
+
+.pause-btn:hover:not(:disabled) {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+.pause-btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.pause-btn.paused {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* sparkline (temperatura / pressão) */
+.value-box .sparkline {
+    width: 100%;
+    height: 4.5rem;
+    display: block;
+}
+
+/* nível — mini medidor em barras */
+.level-meter {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: .4rem;
+    height: 5rem;
+    justify-content: flex-end;
+}
+
+.level-meter span {
+    height: .6rem;
+    border-radius: .3rem;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.level-meter span.filled {
+    background: var(--green);
+}
+
+/* avisos */
+.warnings-box {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.warnings-box .text-box p {
+    color: var(--green);
+}
+
+.warnings-box i {
+    font-size: 2.8rem;
+    color: var(--green);
+}
+
+.warnings-box button {
+    background: var(--purple);
+    color: var(--fixed-white);
+    border: none;
+    border-radius: 999px;
+    padding: .8rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.warnings-box button:hover {
+    background: var(--purple-hover);
+}
+
+/* ---------- linha inferior: gráfico + análise ---------- */
+
+.container-average {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.6rem;
+}
+
+.bar-graphic,
+.info-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1.4rem;
+    padding: 2rem;
+}
+
+.bar-graphic {
+    min-height: 22rem;
+    display: flex;
+}
+
+.bar-graphic canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.info-box h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--gray);
+    margin-bottom: .8rem;
+}
+
+.analise-value {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.operation-status {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-top: .4rem;
+}
+
+.tempo-producao p {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--purple);
+    letter-spacing: .05em;
+}
+
+.bar-graphic {
+    height: 25rem; /* altura DEFINIDA, não só min-height — torna o height:100% do canvas válido */
 }
 

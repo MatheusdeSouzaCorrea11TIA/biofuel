@@ -108,10 +108,11 @@ app.post("/signup", async (req,res) => {
 })
 
 app.post("/api/sensores", async (req, res) => {
-    const { mac } = req.body;
+    const data = req.body;
 
-    console.log(mac)
-    io.emit("sensores", mac)
+    console.log(data)
+    
+    io.emit("dashboard:update", data)
 
     // io.to(`user_${usuario_id}`).emit("sensores", dados);
     // Usar esse quando tiver sistema de autenticação
@@ -122,6 +123,54 @@ app.post("/api/sensores", async (req, res) => {
 httpServer.listen(process.env.PORT, () => {
     console.log(`Servidor rodando em http://localhost:${process.env.PORT}`)
 })
+
+let processState = { operando: false, startedAt: null };
+
+io.on('connection', (socket) => {
+
+    // ------- Ligar e desligar o projeto todo -------- //
+    socket.on('equipamento:iniciar', () => {
+        processState.operando = true;
+        processState.startedAt = Date.now(); // timestamp em ms, UTC
+
+        io.emit('dashboard:update', {
+            operando: true,
+            startedAt: processState.startedAt
+        })
+    })
+
+    socket.on('equipamento:desligar', () => {
+        console.log('Recebido: desligar');
+        io.emit('dashboard:update', { operando: false, startedAt: null });
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Cliente desconectado:', socket.id);
+    });
+
+    // ------ Módulo Relé ------- //
+    socket.on('aquecimento:pausar', () => {
+        // pausa só o aquecimento, mantém resfriamento rodando se estiver ativo
+        io.emit('dashboard:update', { aquecimento: false });
+    });
+
+    socket.on('aquecimento:retomar', () => {
+        io.emit('dashboard:update', { aquecimento: true });
+    });
+
+    socket.on('resfriamento:pausar', () => {
+        io.emit('dashboard:update', { resfriamento: false });
+    });
+
+    socket.on('resfriamento:retomar', () => {
+        io.emit('dashboard:update', { resfriamento: true });
+    });
+})
+
+
+
+
+
 
 /* == Table users ==
 CREATE TABLE users(

@@ -9,100 +9,107 @@
     <script src="./js/changeMode.js"></script>
     <script src="https://cdn.socket.io/4.8.3/socket.io.min.js"></script>
     <script src="./js/dashboard.js" defer></script>
+    <script src="./js/agent.js" defer></script>
 
     <title>BioFuel - DashBoard</title>
 </head>
 
 <body>
-    <dashboard-header>
-
-    </dashboard-header>
+    <dashboard-header></dashboard-header>
 
     <main>
         <section class="dashboard">
             <div class="welcome">
-                <h1>Bem-vindo de volta, <span class="user-name"></span></h1>
+                <h1>Bem-vindo de volta, <span class="user-name">User</span></h1>
             </div>
 
             <div class="buttons">
                 <button id="start">Iniciar Destilação</button>
-                <button id="pause">Pausar</button>
                 <button id="stop">Desligar Equipamento</button>
             </div>
 
             <div class="monitor">
                 <div class="container-values">
+
                     <div class="value-box">
                         <div class="text-box">
-                            <h2>Temperatura</h2>
-                            <p>0ºC</p>
+                            <h2>Temperatura do Destilador</h2>
+                            <p id="temp-destilador">0ºC</p>
                         </div>
+                        <canvas class="sparkline" id="spark-temp-destilador"></canvas>
                     </div>
 
                     <div class="value-box">
+                        <div class="text-box">
+                            <h2>Temperatura do Resfriador</h2>
+                            <p id="temp-resfriador">0ºC</p>
+                        </div>
+                        <canvas class="sparkline" id="spark-temp-resfriador"></canvas>
+                    </div>
+
+                    <div class="value-box status-box">
                         <div class="text-box">
                             <h2>Aquecimento</h2>
-                            <p>Desligado</p>
+                            <p id="aquecimento-status" class="status off">Desligado</p>
                         </div>
-
                         <i class="bi bi-fire"></i>
+                        <button class="pause-btn" id="pause-aquecimento" disabled>Pausar</button>
                     </div>
 
-                    <div class="value-box">
+                    <div class="value-box status-box">
                         <div class="text-box">
                             <h2>Resfriamento</h2>
-                            <p>Desligado</p>
+                            <p id="resfriamento-status" class="status off">Desligado</p>
                         </div>
-                        
-
                         <i class="bi bi-fan"></i>
+                        <button class="pause-btn" id="pause-resfriamento" disabled>Pausar</button>
                     </div>
 
                     <div class="value-box">
                         <div class="text-box">
-                            <h2>Pressão</h2>
-                            <p>0.0MPa</p>
+                            <h2>Pressão da Mangueira</h2>
+                            <p id="pressao">0.0MPa</p>
                         </div>
+                        <canvas class="sparkline" id="spark-pressao"></canvas>
                     </div>
 
                     <div class="value-box">
                         <div class="text-box">
                             <h2>Nível</h2>
-                            <p>0%</p>
+                            <p id="nivel">0%</p>
+                        </div>
+                        <div class="level-meter" id="level-meter">
+                            <span></span><span></span><span></span>
+                            <span></span><span></span><span></span>
                         </div>
                     </div>
 
-                    <div class="value-box">
+                    <div class="value-box warnings-box">
                         <div class="text-box">
                             <h2>Avisos</h2>
-                            <p>0</p>
+                            <p id="avisos-count">0</p>
                         </div>
-
                         <i class="bi bi-shield-check"></i>
-
-                        <button id="show-warnings"></button>
+                        <button id="show-warnings">Ver</button>
                     </div>
+
                 </div>
 
                 <div class="container-average">
                     <div class="bar-graphic">
-
+                        <canvas id="chart-geral"></canvas>
                     </div>
 
                     <div class="info-box">
                         <div class="analise-geral">
-                            <h2>Analise Geral</h2>
-
-                            <p class="analise-value">
-                                0%
-                            </p>
-                            <div class="operation-status">
-                                Operação não iniciada
-                            </div>
+                            <h2>Análise Geral</h2>
+                            <p class="analise-value" id="analise-valor">0%</p>
+                            <div class="operation-status" id="operation-status">Operação não iniciada</div>
                         </div>
 
                         <div class="tempo-producao">
-                            
+                            <h2>Tempo de Produção</h2>
+                            <p id="tempo-producao">00:00:00</p>
                         </div>
                     </div>
                 </div>
@@ -110,7 +117,47 @@
         </section>
 
         <section class="agent">
-            
+            <div class="toggle-agent-container">
+                <button class="agent-toggle" id="agent-toggle" aria-label="Abrir assistente">
+                    <img src="./assets/icons/gemini-logo.png" alt="Logo do gemini">
+                </button>
+                <p>Assistente de Relatório</p>
+            </div>
+
+            <div class="agent-popup hidden" id="agent-popup">
+                <div class="agent-header">
+                    <div class="agent-header-info">
+                        <i class="bi bi-stars"></i>
+                        <span>Assistente BioFuel</span>
+                    </div>
+                    <button class="agent-close" id="agent-close" aria-label="Fechar assistente">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <div class="agent-messages" id="agent-messages">
+                    <div class="agent-message assistant">
+                        Oi! Posso te ajudar a entender os dados do painel, explicar avisos ou sugerir ajustes. O que você precisa?
+                    </div>
+                </div>
+
+                <div class="agent-typing hidden" id="agent-typing">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <form class="agent-input-row" id="agent-form">
+                    <textarea
+                        class="agent-input"
+                        id="agent-input"
+                        placeholder="Pergunte algo sobre a destilação..."
+                        rows="1"
+                        maxlength="1000"
+                    ></textarea>
+                    <button type="submit" class="agent-send" id="agent-send" aria-label="Enviar">
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </form>
+            </div>
         </section>
     </main>
 </body>

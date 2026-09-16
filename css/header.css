@@ -148,6 +148,7 @@ dashboard-header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background: var(--dark-purple);
     width: 22rem;
 
@@ -161,7 +162,7 @@ dashboard-header {
         border-bottom: 0.1rem solid var(--purple);
 
         .home-anchor {
-            color: var(--fixed-white);
+            color: var(--white);
             font-family: var(--title-font-family);
             font-size: 4.8rem;
 
@@ -172,7 +173,7 @@ dashboard-header {
     }
 
     .main-link {
-        color: var(--fixed-white);
+        color: var(--white);
     }
 
     nav {
@@ -203,7 +204,7 @@ dashboard-header {
     }
 
     a {
-        color: var(--fixed-white);
+        color: var(--white);
         font-size: 1.2rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -220,12 +221,81 @@ dashboard-header {
         width: 3rem;
         height: 3rem;
         cursor: pointer;
+        color: var(--white);
     }
 
     i {
         color: var(--fixed-white);
         font-size: 3.6rem;
     }
+
+    .bottom {
+        margin-bottom: 0.5rem;
+
+        .user-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: var(--purple) 0.1rem solid;
+            margin-bottom: 1rem;
+            padding: 1rem;
+
+            .user-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 5rem;
+                aspect-ratio: 1/1;
+                background: var(--purple);
+                border-radius: 50%;
+
+                p {
+                    margin: auto;
+                    font-size: 2.4rem;
+                }
+            }
+
+            .user-name-label {
+                color: var(--white);
+                font-weight: 300;
+                font-size: 1.6rem;
+            }
+        }
+
+        .logo-box {
+            display: flex;
+            padding: 1rem;
+
+            img {
+                width: 6rem;
+                margin-right: 2rem;
+            }
+            
+            p {
+                max-width: 4rem;
+                color: var(--white);
+                font-weight: 700;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    /*  
+        <div class="bottom">
+            <div class="user-box">
+                <div class="user-img">
+                    <p></p>
+                </div>
+
+                <p class="user-name-label"></p>
+            </div>
+
+            <div class="logo-box">
+                <img src="./assets/icons/vortex-logo.png" class="logo">
+                <p>Vortex Horizon</p>
+            </div>
+        </div> 
+    */
 }
 
 @media (max-width: 768px) {
