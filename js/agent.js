@@ -9,6 +9,7 @@ const agentEls = {
     form: document.getElementById('agent-form'),
     input: document.getElementById('agent-input'),
     send: document.getElementById('agent-send'),
+    toggleDiv: document.querySelector(".toggle-agent-container")
 };
 
 // histórico da conversa — importante manter pro contexto da IA nas próximas mensagens
@@ -19,12 +20,14 @@ const conversationHistory = [];
 agentEls.toggle.addEventListener('click', () => {
     agentEls.popup.classList.remove('hidden');
     agentEls.toggle.classList.add('hidden');
+    agentEls.toggleDiv.classList.add('hidden');
     agentEls.input.focus();
 });
 
 agentEls.close.addEventListener('click', () => {
     agentEls.popup.classList.add('hidden');
     agentEls.toggle.classList.remove('hidden');
+    agentEls.toggleDiv.classList.remove('hidden');
 });
 
 // ---------- textarea que cresce sozinha até um limite ----------

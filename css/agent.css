@@ -1,9 +1,13 @@
 /* ---------- botão flutuante (gatilho) ---------- */
 
 .agent {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: fit-content;
 
     .toggle-agent-container {
         display: flex;
@@ -12,7 +16,7 @@
 
         p {
             text-align: center;
-            width: fit-content;
+            max-width: 10rem;
             font-size: 1.2rem;
             font-weight: 700;
         }

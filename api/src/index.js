@@ -4,6 +4,7 @@ import mysql from "mysql2";
 import dotenv from "dotenv"
 import { Server } from "socket.io"
 import { createServer } from "http"
+import ClientGemini from "./client";
 dotenv.config()
 
 const connection = mysql.createPool({
@@ -118,6 +119,22 @@ app.post("/api/sensores", async (req, res) => {
     // Usar esse quando tiver sistema de autenticação
 
     res.send("Recebido")
+})
+
+app.get("/assistant/chat", async (req, res) => {
+    //Pega as informações do ESP
+    const body = req
+
+    //Preencher o prompt com as informações enviadas do ESP32
+    const prompt = ""
+
+    try {
+        //Pega a resposta do gemini
+        const response = await ClientGemini(prompt)
+
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 httpServer.listen(process.env.PORT, () => {
