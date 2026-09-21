@@ -16,7 +16,7 @@ export default async function ClientGemini(prompt) {
 
     // Uso da Interactions API recomendada pela Google
     const interaction = await ai.interactions.create({
-        model: "gemini-3.6-flash",
+        model: "gemini-3.7-flash",
         input: prompt,
         system_instruction: systemInstruction
     });
