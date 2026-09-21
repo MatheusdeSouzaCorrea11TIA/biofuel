@@ -1,10 +1,10 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import mysql from "mysql2";
 import dotenv from "dotenv"
 import { Server } from "socket.io"
 import { createServer } from "http"
-import ClientGemini from "./client";
+import ClientGemini from "./client.js";
 dotenv.config()
 
 const connection = mysql.createPool({
@@ -121,16 +121,20 @@ app.post("/api/sensores", async (req, res) => {
     res.send("Recebido")
 })
 
-app.get("/assistant/chat", async (req, res) => {
+app.post("/api/assistant/chat", async (req, res) => {
     //Pega as informações do ESP
-    const body = req
+    const body = req.body.message
 
     //Preencher o prompt com as informações enviadas do ESP32
-    const prompt = ""
+    const prompt = body
 
     try {
         //Pega a resposta do gemini
         const response = await ClientGemini(prompt)
+
+        console.log(response)
+
+        res.json({ reply: response })
 
     } catch (err) {
         console.log(err)
