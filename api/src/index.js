@@ -146,6 +146,15 @@ httpServer.listen(process.env.PORT, () => {
 })
 
 let processState = { operando: false, startedAt: null };
+let rele_aquecimento = false;
+let rele_resfriamento = false;
+
+app.post("/api/sensores", async (req, res) => {
+    res.json({
+        rele_aquecimento,
+        rele_resfriamento
+    })
+})
 
 io.on('connection', (socket) => {
 
@@ -172,19 +181,23 @@ io.on('connection', (socket) => {
     // ------ Módulo Relé ------- //
     socket.on('aquecimento:pausar', () => {
         // pausa só o aquecimento, mantém resfriamento rodando se estiver ativo
-        io.emit('dashboard:update', { aquecimento: false });
+        rele_aquecimento = false
+        io.emit('dashboard:update', { rele_aquecimento });
     });
 
     socket.on('aquecimento:retomar', () => {
-        io.emit('dashboard:update', { aquecimento: true });
+        rele_aquecimento = true
+        io.emit('dashboard:update', { rele_aquecimento });
     });
 
     socket.on('resfriamento:pausar', () => {
-        io.emit('dashboard:update', { resfriamento: false });
+        rele_resfriamento = false
+        io.emit('dashboard:update', { rele_resfriamento });
     });
 
     socket.on('resfriamento:retomar', () => {
-        io.emit('dashboard:update', { resfriamento: true });
+        rele_resfriamento = true
+        io.emit('dashboard:update', { rele_resfriamento });
     });
 })
 
