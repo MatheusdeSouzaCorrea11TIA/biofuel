@@ -14,6 +14,19 @@ const state = {
     operando: false,
 };
 
+const stateLimit = {
+    aquecedorMin: 78,   // ºC
+    aquecedorMax: 90,   // ºC
+
+    resfriadorMin: 15,
+    resfriadorMax: 25,
+
+    pressaoMin: 0.1,
+    pressaoMax: 0.5,
+    
+    operacaoMin: 50,
+}
+
 // históricos p/ sparklines (últimos N pontos)
 const HISTORY_SIZE = 30;
 const history = {
@@ -43,11 +56,15 @@ const els = {
     resfriamentoStatus: document.getElementById('resfriamento-status'),
     pressao: document.getElementById('pressao'),
     nivel: document.getElementById('nivel'),
-    avisosCount: document.getElementById('avisos-count'),
     analiseValor: document.getElementById('analise-valor'),
     operationStatus: document.getElementById('operation-status'),
     tempoProducao: document.getElementById('tempo-producao'),
     levelMeter: document.getElementById('level-meter'),
+    
+    shield: document.querySelector(".bi-shield-check"),
+    avisosAquecimento: document.querySelector('.warning-heat p'),
+    avisosResfriamento: document.querySelector('.warning-cold p'),
+    avisosPressao: document.querySelector('.warning-pressure p'),
 
     sparkTempDestilador: document.getElementById('spark-temp-destilador'),
     sparkTempResfriador: document.getElementById('spark-temp-resfriador'),
@@ -69,7 +86,6 @@ function render() {
     els.tempResfriador.textContent = `${state.temperaturaResfriador.toFixed(1)}ºC`;
     els.pressao.textContent = `${state.pressaoMangueira.toFixed(2)}MPa`;
     els.nivel.textContent = `${Math.round(state.nivel)}%`;
-    els.avisosCount.textContent = state.avisos;
 
     els.aquecimentoStatus.textContent = state.aquecimento && state.operando ? 'Ligado' : 'Desligado';
     els.aquecimentoStatus.classList.toggle('on', state.aquecimento && state.operando);
@@ -95,6 +111,7 @@ function render() {
 
     renderLevelMeter();
     renderAnaliseGeral();
+    analiseWarnings()
 
     drawSparkline(els.sparkTempDestilador, history.temperaturaDestilador, cssVar('--green'));
     drawSparkline(els.sparkTempResfriador, history.temperaturaResfriador, cssVar('--purple'));
@@ -121,21 +138,69 @@ function percentFromRange(value, min, max) {
 
 function analiseGeralPercent() {
     // média simples — ajuste a fórmula conforme a regra de negócio real
-    const t = percentFromRange(state.temperaturaDestilador, 0, 120);
-    const p = percentFromRange(state.pressaoMangueira, 0, 1);
+    const t = percentFromRange(state.temperaturaDestilador, stateLimit.aquecedorMin, stateLimit.aquecedorMax);
+    const r = percentFromRange(state.temperaturaResfriador, stateLimit.resfriadorMin, stateLimit.resfriadorMax);
+    const p = percentFromRange(state.pressaoMangueira, stateLimit.pressaoMin, stateLimit.pressaoMax);
     const n = state.nivel;
-    return Math.round((t + p + n) / 3);
+    return Math.round((t + r + p + n) / 4);
 }
 
 function renderAnaliseGeral() {
     const pct = analiseGeralPercent();
+    const range = inRange(pct, stateLimit.operacaoMin, 100)
     els.analiseValor.textContent = `${pct}%`;
+    els.analiseValor.style.color = range.color
 }
 
 function renderLevelMeter() {
     const segments = els.levelMeter.querySelectorAll('span');
     const filledCount = Math.round((state.nivel / 100) * segments.length);
     segments.forEach((seg, i) => seg.classList.toggle('filled', i < filledCount));
+}
+
+function analiseWarnings() {
+    let isOK = true;
+
+    const aquecimentoValues = inRange(state.temperaturaDestilador, stateLimit.aquecedorMin, stateLimit.aquecedorMax);
+    els.avisosAquecimento.textContent = aquecimentoValues.text
+    els.avisosAquecimento.style.color = aquecimentoValues.color
+    if (isOK == true) isOK = aquecimentoValues.isOK
+
+    const resfriamentoValues = inRange(state.temperaturaResfriador, stateLimit.resfriadorMin, stateLimit.resfriadorMax);
+    els.avisosResfriamento.textContent = resfriamentoValues.text;
+    els.avisosResfriamento.style.color = resfriamentoValues.color;
+    if (isOK == true) isOK = aquecimentoValues.isOK
+
+    const pressaoValues = inRange(state.pressaoMangueira, stateLimit.pressaoMin, stateLimit.pressaoMax);
+    els.avisosPressao.textContent = pressaoValues.text;
+    els.avisosPressao.style.color = pressaoValues.color;
+    if (isOK == true) isOK = aquecimentoValues.isOK
+
+    if (isOK) 
+    {
+        els.shield.classList.remove("bi-shield-x")
+        els.shield.classList.add("bi-shield-check")
+        els.shield.style.color = cssVar('--green')
+    } else {
+        els.shield.classList.add("bi-shield-x")
+        els.shield.classList.remove("bi-shield-check")
+        els.shield.style.color = cssVar('--red')
+    }
+
+}
+
+function inRange(value, min, max) {
+    let text = value >= min && value <= max ? 'OK' : 'ALERTA'
+    let color = value >= min && value <= max ? cssVar('--green') : cssVar('--red')
+
+    if (!state.operando) {
+        text = 'OK'
+        color = cssVar('--green')
+    }
+    
+    isOK = text == 'OK'
+
+    return { text, color , isOK }
 }
 
 // ---------- sparkline (canvas simples) ----------
@@ -163,9 +228,18 @@ function drawSparkline(canvas, data, color) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, rect.width, rect.height);
 
-    const min = Math.min(...data);
-    const max = Math.max(...data);
-    const range = max - min || 1;
+    let min = Math.min(...data);
+    let max = Math.max(...data);
+
+    let range = max - min;
+    const minRange = 0.25; // Defina um range mínimo visual de tolerância (ajuste conforme necessário)
+    
+    if (range < minRange) {
+        const diff = (minRange - range) / 2;
+        min -= diff;
+        max += diff;
+        range = minRange;
+    }
 
     ctx.beginPath();
     data.forEach((value, i) => {
@@ -211,8 +285,8 @@ function drawBarChart(canvas, values) {
     const chartH = rect.height - padding.top - padding.bottom;
 
     // cores lidas do tema atual
-    const gridColor = cssVar('--card-border') || 'rgba(255,255,255,0.08)';
-    const labelColor = cssVar('--gray') || 'rgba(255,255,255,0.35)';
+    const gridColor = cssVar('--dark-purple') || 'rgba(255,255,255,0.08)';
+    const labelColor = cssVar('--mid-gray') || 'rgba(255,255,255,0.35)';
     const barColor = cssVar('--green');
     const totalColor = cssVar('--purple');
 
@@ -272,9 +346,9 @@ function updateElapsedTime(startedAt) {
 }
 
 // ---------- socket.io ----------
-const backendURL = "https://biofuel-backend-8r7x8mm0v.vercel.app/"
+const backendURL = "https://biofuel-backend-exzblb6l5.vercel.app/"
 const testURL = "http://localhost:3000"
-const socket = io(testURL);
+const socket = io(backendURL);
 
 // ajuste os nomes de evento conforme seu backend
 let timerInterval = null;
@@ -326,6 +400,23 @@ els.btnPauseResfriamento.addEventListener('click', () => {
 els.btnStop.addEventListener('click', () => {
     state.operando = false;
     socket.emit('equipamento:desligar');
+
+    const zero = {
+        temperaturaDestilador: 0,   // ºC
+        temperaturaResfriador: 0,   // ºC
+        aquecimento: false,
+        aquecimentoPausado: false,
+        resfriamento: false,
+        resfriamentoPausado: false,
+        pressaoMangueira: 0,        // MPa
+        nivel: 0,                   // %
+        avisos: 0,
+        tempoProducaoSegundos: 0,
+        operando: false,
+    };
+
+    Object.assign(state,zero)
+
     render();
 });
 

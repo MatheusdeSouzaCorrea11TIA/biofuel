@@ -4,7 +4,7 @@ import mysql from "mysql2";
 import dotenv from "dotenv"
 import { Server } from "socket.io"
 import { createServer } from "http"
-import ClientGemini from "./client.js";
+import ClientOpenai from "./client.js";
 dotenv.config()
 
 const connection = mysql.createPool({
@@ -123,16 +123,11 @@ app.post("/api/sensores", async (req, res) => {
 
 app.post("/api/assistant/chat", async (req, res) => {
     //Pega as informações do ESP
-    const body = req.body.message
-
-    //Preencher o prompt com as informações enviadas do ESP32
-    const prompt = body
+    const { message, history, context } = req.body;
 
     try {
         //Pega a resposta do gemini
-        const response = await ClientGemini(prompt)
-
-        console.log(response)
+        const response = await ClientOpenai({message,history,context})
 
         res.json({ reply: response })
 
@@ -149,8 +144,9 @@ let processState = { operando: false, startedAt: null };
 let rele_aquecimento = false;
 let rele_resfriamento = false;
 
-app.post("/api/sensores", async (req, res) => {
+app.get("/api/sistema", async (req, res) => {
     res.json({
+        sistema_ligado: processState.operando,
         rele_aquecimento,
         rele_resfriamento
     })
@@ -170,8 +166,13 @@ io.on('connection', (socket) => {
     })
 
     socket.on('equipamento:desligar', () => {
-        console.log('Recebido: desligar');
-        io.emit('dashboard:update', { operando: false, startedAt: null });
+        processState.operando = false;
+        processState.startedAt = null // timestamp em ms, UTC
+
+        io.emit('dashboard:update', { 
+            operando: false,
+            startedAt: null 
+        });
     });
 
     socket.on('disconnect', () => {
@@ -181,22 +182,22 @@ io.on('connection', (socket) => {
     // ------ Módulo Relé ------- //
     socket.on('aquecimento:pausar', () => {
         // pausa só o aquecimento, mantém resfriamento rodando se estiver ativo
-        rele_aquecimento = false
-        io.emit('dashboard:update', { rele_aquecimento });
-    });
-
-    socket.on('aquecimento:retomar', () => {
         rele_aquecimento = true
         io.emit('dashboard:update', { rele_aquecimento });
     });
 
+    socket.on('aquecimento:retomar', () => {
+        rele_aquecimento = false
+        io.emit('dashboard:update', { rele_aquecimento });
+    });
+
     socket.on('resfriamento:pausar', () => {
-        rele_resfriamento = false
+        rele_resfriamento = true
         io.emit('dashboard:update', { rele_resfriamento });
     });
 
     socket.on('resfriamento:retomar', () => {
-        rele_resfriamento = true
+        rele_resfriamento = false
         io.emit('dashboard:update', { rele_resfriamento });
     });
 })

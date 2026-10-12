@@ -142,7 +142,7 @@ main .itens-usados {
             }
 
             .price-bg {
-                color: var(--fixed-black);
+                color: var(--black);
                 background: var(--green);
                 border-radius: 1rem;
                 padding: 0.25rem 1rem;
@@ -176,6 +176,9 @@ main .itens-usados {
         } 
 
         div.swiper {
+            display: flex;
+            flex-direction: column;
+
             div.swiper-slide {
                 display: flex;
                 flex-direction: column;
@@ -216,7 +219,15 @@ main .itens-usados {
                         font-weight: 600;
                     }
                 }
-            }    
+            }  
+            
+            div.swiper-pagination{
+                position: inherit;
+                display: flex;
+                justify-content: center;
+                flex-direction: row !important;
+                margin-top: 3rem;
+            }
         }
     }
 }

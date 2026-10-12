@@ -50,7 +50,7 @@ agentEls.input.addEventListener('keydown', (e) => {
 function addMessage(text, role) {
     const bubble = document.createElement('div');
     bubble.className = `agent-message ${role}`;
-    bubble.textContent = text;
+    bubble.innerHTML = text;
     agentEls.messages.appendChild(bubble);
     agentEls.messages.scrollTop = agentEls.messages.scrollHeight;
     return bubble;
@@ -98,22 +98,15 @@ agentEls.form.addEventListener('submit', async (e) => {
 async function askAssistant(message) {
     // Envia o histórico inteiro (não só a mensagem atual) pra IA ter contexto.
     // Ajuste a URL/payload conforme o endpoint real do seu backend.
-    const response = await fetch(`${testURL}/api/assistant/chat`, {
+    console.log(state)
+    const response = await fetch(`${backendURL}/api/assistant/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             message,
             history: conversationHistory,
             // dá contexto do estado atual do equipamento pra IA responder com dados reais
-            context: {
-                temperaturaDestilador: state.temperaturaDestilador,
-                temperaturaResfriador: state.temperaturaResfriador,
-                pressaoMangueira: state.pressaoMangueira,
-                nivel: state.nivel,
-                aquecimento: state.aquecimento,
-                resfriamento: state.resfriamento,
-                operando: state.operando,
-            },
+            context: state
         }),
     });
 

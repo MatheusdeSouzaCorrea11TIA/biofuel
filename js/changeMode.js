@@ -34,6 +34,7 @@ function changeColors(darkmode) {
     if (darkmode) {
         root.style.setProperty('--white', '#FFFFFF')
         root.style.setProperty('--gray', '#A8A8A8')
+        root.style.setProperty('--mid-gray', '#7c7c7c')
         root.style.setProperty('--dark-gray', '#131212')
         root.style.setProperty('--black', '#000000')
         root.style.setProperty('--input-bg', '#181818')
@@ -55,13 +56,14 @@ function changeColors(darkmode) {
     } else {
         root.style.setProperty('--white', '#000000')
         root.style.setProperty('--gray', '#5C5C66')
+        root.style.setProperty('--mid-gray', '#adadad')
         root.style.setProperty('--dark-gray', '#E4E2ED')
         root.style.setProperty('--black', '#FFFFFF')
         root.style.setProperty('--input-bg', '#E9E7F2')
 
         // dashboard
-        root.style.setProperty('--dash-bg', '#cbc6da')
-        root.style.setProperty('--purple', '#5A2FA0')
+        root.style.setProperty('--dash-bg', '#f5f1ff')
+        root.style.setProperty('--purple', '#9263dd')
         root.style.setProperty('--mid-purple', '#9B7FCB')
         root.style.setProperty('--dark-purple', '#bfafdb')
         root.style.setProperty('--orange', '#B8600A')

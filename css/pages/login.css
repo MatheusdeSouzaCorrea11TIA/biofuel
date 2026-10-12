@@ -14,10 +14,10 @@ body {
     display: flex;
     background: var(--black);
     padding: 2rem;
-    height: 80svh;
+    height: 75svh;
     aspect-ratio: 16/10;
     border-radius: 3rem;
-    margin-top: 4rem;
+    margin-top: 7rem;
 
     .divisor {
         position: absolute;
@@ -60,7 +60,7 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 7rem;
+        gap: 5rem;
         width: 50%;
 
         h2 {
@@ -118,4 +118,69 @@ body {
 
 .divisor.right {
     left: calc(50%);
+}
+
+@media (max-width: 768px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100svh;
+        max-height: none;
+        overflow-y: auto;
+        padding-bottom: 3rem;
+    }
+
+    /* card vira coluna: login em cima, cadastro embaixo */
+    .main-box {
+        flex-direction: column;
+        width: 90vw;
+        max-width: 45rem;
+        height: auto;
+        aspect-ratio: auto;
+        margin-top: 25rem; /* espaço para o header; ajuste se sobrar ou faltar */
+        padding: 2rem;
+        border-radius: 2rem;
+
+        .login-box,
+        .sign-up-box {
+            width: 100%;
+            min-height: 32rem;
+            gap: 2rem;
+
+            h2 {
+                font-size: 3.6rem;
+            }
+
+            .input-box {
+                width: min(25rem, 100%);
+            }
+        }
+    }
+
+    /* a faixa desliza na vertical em vez de na horizontal */
+    .main-box .divisor {
+        left: 2rem;
+        top: 2rem;
+        width: calc(100% - 4rem);
+        height: calc(50% - 2rem);
+        border-radius: 2rem;
+
+        p {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        button {
+            padding: 0.8rem 3rem;
+            font-size: 1.4rem;
+        }
+    }
+
+    /* estado "right": cobre a metade de baixo (cadastro) */
+    .main-box .divisor.right {
+        left: 2rem;
+        top: 50%;
+    }
 }

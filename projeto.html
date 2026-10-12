@@ -13,9 +13,11 @@
 
     <script defer>
         document.addEventListener("DOMContentLoaded", () => {
-            new Swiper(".infinite-3dslider", {
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+            const swipper = new Swiper(".infinite-3dslider", {
                 slidesPerView: "auto",
-                spaceBetween: 20,
+                spaceBetween: mediaQuery.matches ? -150 : 30,
                 loop: true,
                 speed: 5000,
 

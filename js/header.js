@@ -65,12 +65,16 @@ class DashHeader extends HTMLElement {
                     <button id="changeTheme" onclick="toggleModes()">
                         <i class="bi bi-moon"></i>
                     </button>
-                    
+
                     <div class="main-link">
                         <a href="index.html" class="home-anchor">
                             Bio<span class="purple">Fuel</span>
                         </a>
                     </div>
+
+                    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                        <i class="bi bi-list"></i>
+                    </button>
                 </div>
 
                 <nav>
@@ -118,6 +122,15 @@ class DashHeader extends HTMLElement {
                 </div>
             </div>
         `
+
+        const toggle = this.querySelector(".menu-toggle")
+        const icon = toggle.querySelector("i")
+
+        toggle.addEventListener("click", () => {
+            const open = this.classList.toggle("open")
+            toggle.setAttribute("aria-expanded", open)
+            icon.className = open ? "bi bi-x-lg" : "bi bi-list"
+        })
     }
 }
 
