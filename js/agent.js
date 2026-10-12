@@ -99,7 +99,7 @@ async function askAssistant(message) {
     // Envia o histórico inteiro (não só a mensagem atual) pra IA ter contexto.
     // Ajuste a URL/payload conforme o endpoint real do seu backend.
     console.log(state)
-    const response = await fetch(`${backendURL}/api/assistant/chat`, {
+    const response = await fetch(`${backendURL}api/assistant/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
