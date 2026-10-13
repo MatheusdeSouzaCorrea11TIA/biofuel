@@ -360,6 +360,10 @@ main {
         min-height: 11rem;
     }
 
+    .value-box .text-box h2 {
+        font-size: 2rem !important;
+    }
+
     .value-box .text-box p {
         font-size: 2rem;
     }

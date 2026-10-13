@@ -346,7 +346,7 @@ function updateElapsedTime(startedAt) {
 }
 
 // ---------- socket.io ----------
-const backendURL = "https://biofuel-backend-exzblb6l5.vercel.app/"
+const backendURL = "https://biofuel-backend.onrender.com/"
 const testURL = "http://localhost:3000"
 const socket = io(backendURL);
 

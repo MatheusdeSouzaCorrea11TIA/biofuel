@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
 import mysql from "mysql2";
 import dotenv from "dotenv"
@@ -88,7 +88,7 @@ app.post("/signup", async (req,res) => {
 
         const insertCommand = `INSERT INTO users(name, email, password)
                             VALUES(?,?,?)`
-        connection.query(insertCommand, [name,email,password], (err) => {
+        connection.query(insertCommand, [name,email,password], (err, result) => {
             if (err) {
                 console.log(err)
                 return res.status(500).json({
@@ -99,7 +99,7 @@ app.post("/signup", async (req,res) => {
             res.status(200).json({
                 message: "Cadastro realizado com sucesso!",
                 user: {
-                    id: user.id,
+                    id: result.insertId,
                     name: user.name,
                     email: user.email
                 }

@@ -20,7 +20,7 @@ Object.values(signupInput).forEach(input => {
 });
 
 const PORT = 3000
-const backendURL = `https://biofuel-backend-alpha.vercel.app`
+const backendURL = `https://biofuel-backend.onrender.com`
 
 async function Login() {
     if (!loginInput.email.value.trim() || !loginInput.password.value.trim()) {
