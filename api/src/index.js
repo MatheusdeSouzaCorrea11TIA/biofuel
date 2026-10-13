@@ -100,8 +100,8 @@ app.post("/signup", async (req,res) => {
                 message: "Cadastro realizado com sucesso!",
                 user: {
                     id: result.insertId,
-                    name: user.name,
-                    email: user.email
+                    name,
+                    email
                 }
             })
         })
