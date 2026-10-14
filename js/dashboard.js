@@ -387,12 +387,14 @@ els.btnStart.addEventListener('click', () => {
 
 els.btnPauseAquecimento.addEventListener('click', () => {
     state.aquecimentoPausado = !state.aquecimentoPausado;
+    state.aquecimento = !state.aquecimentoPausado
     socket.emit(state.aquecimentoPausado ? 'aquecimento:pausar' : 'aquecimento:retomar');
     render();
 });
 
 els.btnPauseResfriamento.addEventListener('click', () => {
     state.resfriamentoPausado = !state.resfriamentoPausado;
+    state.resfriamento = !state.resfriamentoPausado
     socket.emit(state.resfriamentoPausado ? 'resfriamento:pausar' : 'resfriamento:retomar');
     render();
 });
@@ -404,10 +406,6 @@ els.btnStop.addEventListener('click', () => {
     const zero = {
         temperaturaDestilador: 0,   // ºC
         temperaturaResfriador: 0,   // ºC
-        aquecimento: false,
-        aquecimentoPausado: false,
-        resfriamento: false,
-        resfriamentoPausado: false,
         pressaoMangueira: 0,        // MPa
         nivel: 0,                   // %
         avisos: 0,
