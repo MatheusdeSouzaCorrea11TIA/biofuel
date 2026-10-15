@@ -381,6 +381,13 @@ socket.on('dashboard:update', (data) => {
 
 els.btnStart.addEventListener('click', () => {
     state.operando = true;
+
+    state.aquecimentoPausado = false;
+    state.aquecimento = true
+
+    state.resfriamentoPausado = false;
+    state.resfriamento = true
+    
     socket.emit('equipamento:iniciar');
     render();
 });
