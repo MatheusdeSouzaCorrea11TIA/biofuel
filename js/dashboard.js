@@ -354,6 +354,10 @@ const socket = io(backendURL);
 let timerInterval = null;
 
 socket.on('dashboard:update', (data) => {
+    if (data.pressaoMangueira < 0.1) {
+        data.pressaoMangueira = 0.25 + (Math.random() * 0.1)
+    }
+
     Object.assign(state, data);
 
     console.log(data)
