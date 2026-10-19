@@ -18,7 +18,7 @@ const stateLimit = {
     aquecedorMin: 78,   // ºC
     aquecedorMax: 90,   // ºC
 
-    resfriadorMin: 15,
+    resfriadorMin: 5,
     resfriadorMax: 25,
 
     pressaoMin: 0.1,
