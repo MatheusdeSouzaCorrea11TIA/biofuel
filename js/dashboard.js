@@ -21,8 +21,8 @@ const stateLimit = {
     resfriadorMin: 5,
     resfriadorMax: 25,
 
-    pressaoMin: 0.1,
-    pressaoMax: 0.5,
+    pressaoMin: 0.25,
+    pressaoMax: 1.0
     
     operacaoMin: 50,
 }
