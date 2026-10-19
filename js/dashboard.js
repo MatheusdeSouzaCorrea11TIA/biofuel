@@ -149,7 +149,7 @@ function renderAnaliseGeral() {
     const pct = analiseGeralPercent();
     const range = inRange(pct, stateLimit.operacaoMin, 100)
     els.analiseValor.textContent = `${pct}%`;
-    els.analiseValor.style.color = range.color
+    els.analiseValor.style.color = cssVar('--green')
 }
 
 function renderLevelMeter() {
