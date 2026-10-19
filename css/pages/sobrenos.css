@@ -51,6 +51,24 @@ main .team {
 
     .members {
         display: flex;
+        gap: 5rem;
+    }
+
+    .members .member {
+        img {
+            height: 20rem;
+            width: 20rem;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 0.2rem solid var(--purple);
+        }
+
+        p {
+            margin-top: 1rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-align: center;
+        }
     }
 
     .message {
@@ -71,6 +89,74 @@ main .team {
 
         img {
             width: 20rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    main .title {
+        flex-direction: column;
+        justify-content: center;
+        min-height: var(--title-section-height);
+        height: 60rem;
+        padding: 4rem 2rem;
+        gap: 3rem;
+        text-align: center;
+
+        .text-box {
+            margin-right: 0;
+            margin-top: 12rem;
+
+            h1 {
+                font-size: 3.6rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+                max-width: 100%;
+            }
+        }
+
+        img {
+            width: 10rem;
+        }
+    }
+
+    main section.auras {
+        width: 100svw;
+        height: 25rem;
+        background-size: contain;
+        background-position: center;
+        h2 {
+            font-size: 3rem !important;
+        }
+    }
+
+    main .team {
+        padding: 3rem 2rem;
+        gap: 2rem;
+
+        .members {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .message {
+            flex-direction: column;
+            width: 100%;
+            padding: 1rem;
+            gap: 2rem;
+
+            p {
+                max-width: 100%;
+                text-align: center;
+                font-size: 1.6rem;
+            }
+
+            img {
+                width: 10rem;
+            }
         }
     }
 }
