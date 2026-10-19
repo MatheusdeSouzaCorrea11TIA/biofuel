@@ -106,6 +106,12 @@ main .game {
                     text-decoration: none;
                     font-size: 1.6rem;
                 }
+
+                .download-btn {
+                    background: none;
+                    font-weight: 700;
+                    padding: 0;
+                }
             }
         }
     }
